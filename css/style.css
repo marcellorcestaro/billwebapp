@@ -1,0 +1,148 @@
+/* Reset */
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+ul,
+li,
+a {
+    text-decoration: none;
+    list-style: none;
+}
+
+h1,
+h2,
+h3 {
+    text-decoration: none;
+}
+
+
+/* Fonts */
+
+@font-face {
+    font-family: 'main-font';
+    src: url(../fonts/Roboto/Roboto-Regular.ttf);
+}
+
+
+/* Basic styles */
+
+body {
+    font-family: 'main-font';
+}
+
+
+/* Mobile */
+
+nav {
+    background-color: #F0C419;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, .1);
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+}
+
+nav .logo img {
+    padding: 5px 10px;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+nav .menu-icon {
+    padding: 28px 20px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+nav .menu-icon .nav-icon {
+    background: black;
+    display: block;
+    height: 2px;
+    width: 18px;
+    position: relative;
+    transition: background .3s ease-out;
+}
+
+nav .menu-icon .nav-icon::before {
+    background: black;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 5px;
+    transition: all .3s ease-out;
+}
+
+nav .menu-icon .nav-icon::after {
+    background: black;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: -5px;
+    transition: all .3s ease-out;
+}
+
+.btn-menu {
+    display: none;
+}
+
+nav .menu {
+    clear: both;
+    max-height: 0;
+    /*Apenas pra teste*/
+    background-color: aquamarine;
+    text-align: center;
+    transition: max-height .3s ease-out;
+}
+
+nav li a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    width: 100%;
+    color: black;
+}
+
+nav li a:hover {
+    color: #F0C419;
+}
+
+nav .btn-menu:checked~.menu {
+    max-height: 600px;
+}
+
+nav .btn-menu:checked~.menu-icon .nav-icon {
+    background: transparent;
+}
+
+nav .btn-menu:checked~.menu-icon .nav-icon::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+nav .btn-menu:checked~.menu-icon .nav-icon::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+main {
+    padding-top: 60px;
+}
+
+.content {
+    padding: 30px;
+}
