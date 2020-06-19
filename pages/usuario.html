@@ -7,6 +7,7 @@
     <meta name="author" content="Marcello Cestaro - ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../javascript/script.js"></script>
     <title>Document</title>
 </head>
 
@@ -26,11 +27,40 @@
     <main>
         <section class="content">
             <h1>Meus dados:</h1>
-            <article class="userData" id="userName">
-                <label><h3s>Nome</h3></label>
-                <div class="undelineLabel"></div>
-                <input type="checkbox" id="myName">
-                <input type="text" id="txt-name">
+            <article class="user-data" id="user-name">
+                <label>Nome<br><div class="underline-label"></div></label>
+                <label class="data-icon" id="name-drop" onclick="expandUserName()">&#x2b;</label>
+                <label class="data-icon" id="name-up" onclick="upUserName()">&#x2212;</label>
+                <div id="user-name-content" class="user-content">
+                    <input type="text" id="txt-name" class="txt-fields">
+                </div>
+                <button type="submit" id="name-button" class="button">Alterar</button>
+            </article>
+            <article class="user-data" id="user-email">
+                <label>Email<br><div class="underline-label"></div></label>
+                <label class="data-icon" id="email-drop" onclick="dropUserEmail()">&#x2b;</label>
+                <label class="data-icon" id="email-up" onclick="upUserEmail()">&#x2212;</label>
+                <div id="user-email-content" class="user-content">
+                    <label for="txt-email-atual">Atual</label>
+                    <input type="text" id="txt-email-atual" class="txt-fields">
+                    <span>Email incorreto</span>
+                    <label for="txt-email-novo">Novo</label>
+                    <input type="text" id="txt-email-novo" class="txt-fields">
+                </div>
+                <button type="submit" id="email-button" class="button">Alterar</button>
+            </article>
+            <article class="user-data" id="user-pass">
+                <label>Senha<br><div class="underline-label"></div></label>
+                <label class="data-icon" id="pass-drop" onclick="dropUserPass()">&#x2b;</label>
+                <label class="data-icon" id="pass-up" onclick="upUserPass()">&#x2212;</label>
+                <div id="user-pass-content" class="user-content">
+                    <label for="txt-pass-atual">Atual</label>
+                    <input type="text" id="txt-pass-atual" class="txt-fields">
+                    <span>Senha incorreta</span>
+                    <label for="txt-pass-novo">Nova</label>
+                    <input type="text" id="txt-pass-novo" class="txt-fields">
+                </div>
+                <button type="submit" id="pass-button" class="button">Alterar</button>
             </article>
         </section>
     </main>

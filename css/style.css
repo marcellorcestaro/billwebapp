@@ -4,28 +4,19 @@
     padding: 0;
     margin: 0;
     text-decoration: none;
-    overflow-x: hidden;
     box-sizing: border-box;
-}
-
-ul,
-li,
-a {
-    text-decoration: none;
-    list-style: none;
-}
-
-h1,
-h2,
-h3 {
-    text-decoration: none;
 }
 
 
 /* Fonts */
 
 @font-face {
-    font-family: 'main-font';
+    font-family: 'title-font';
+    src: url(../fonts/Roboto/Roboto-Thin.ttf);
+}
+
+@font-face {
+    font-family: 'content-font';
     src: url(../fonts/Roboto/Roboto-Regular.ttf);
 }
 
@@ -33,7 +24,13 @@ h3 {
 /* Basic styles */
 
 body {
-    font-family: 'main-font';
+    font-family: 'content-font';
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'title-font';
 }
 
 
@@ -103,8 +100,7 @@ nav .menu-icon .nav-icon::after {
 nav .menu {
     clear: both;
     max-height: 0;
-    /*Apenas pra teste*/
-    background-color: aquamarine;
+    background-color: white;
     text-align: center;
     transition: max-height .3s ease-out;
 }
@@ -145,4 +141,85 @@ main {
 
 .content {
     padding: 30px;
+}
+
+.content h1 {
+    font-weight: 200;
+    font-size: 30px;
+    font-style: normal;
+    line-height: 35px;
+    letter-spacing: -0.045em;
+    margin-bottom: 40px;
+}
+
+.user-data {
+    width: auto;
+    height: max-content;
+    background-color: white;
+    padding: 15px 30px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+    margin-bottom: 30px;
+}
+
+.button {
+    width: 86px;
+    height: 24px;
+    background: #F0C419;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.07);
+    border-radius: 3px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.045em;
+    grid-column: 5;
+    grid-row: 3;
+    display: none;
+}
+
+.underline-label {
+    width: 27px;
+    height: 0px;
+    border: 2px solid #F0C419;
+}
+
+.user-content {
+    grid-column: 1/11;
+    grid-row: 2;
+    display: none;
+}
+
+.user-content label,
+.user-content input {
+    padding-top: 30px;
+}
+
+#user-name-content input {
+    margin-bottom: 40px;
+}
+
+.user-content>span {
+    width: 100%;
+    color: red;
+    text-align: center;
+}
+
+.txt-fields {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #180B3C;
+    margin-bottom: 10px;
+}
+
+.user-data .data-icon {
+    cursor: pointer;
+    grid-column: 10;
+    grid-row: 1;
+}
+
+#up {
+    display: none;
 }
