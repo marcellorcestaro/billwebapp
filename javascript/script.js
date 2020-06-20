@@ -1,20 +1,22 @@
 //Get user info
 const BASE_URL = 'https://billwebapp.herokuapp.com/api/despesa/fixa/'
+let user = {}
 
 window.onload = () => {
+    this.getPage()
     this.getUserInfo()
 }
 
-function getUserName(data) {
+function getUserName() {
     let txtUserName = document.getElementById('txt-name')
-    txtUserName.placeholder = data.categoria
+    txtUserName.placeholder = user.categoria
 }
 
-function compareUserEmail(data) {
+function compareUserEmail() {
     let txtUserEmail = document.getElementById('txt-email-atual')
     txtUserEmail.onchange = () => {
         let emailSpan = document.getElementById('email-span')
-        if (txtUserEmail.value != data.categoria) {
+        if (txtUserEmail.value != user.categoria) {
             emailSpan.style.display = 'block'
         } else {
             emailSpan.style.display = 'none'
@@ -22,11 +24,11 @@ function compareUserEmail(data) {
     }
 }
 
-function compareUserPass(data) {
+function compareUserPass() {
     let txtUserPass = document.getElementById('txt-pass-atual')
     txtUserPass.onchange = () => {
         let passSpan = document.getElementById('pass-span')
-        if (txtUserPass.value != data.categoria) {
+        if (txtUserPass.value != user.categoria) {
             passSpan.style.display = 'block'
         } else {
             passSpan.style.display = 'none'
@@ -38,9 +40,7 @@ function getUserInfo() {
     let url = `${BASE_URL}`
     getJSON(url, function(status, data) {
         console.log(data[0])
-        this.getUserName(data[0])
-        this.compareUserEmail(data[0])
-        this.compareUserPass(data[0])
+        user = data[0]
     })
 }
 
@@ -72,6 +72,7 @@ function expandUserName() {
     userNameContent.style.flexDirection = 'column'
     userNameContent.style.alignItems = 'center'
     document.getElementById('name-button').style.display = "block"
+    this.getUserName()
 }
 
 function upUserName() {
@@ -93,6 +94,7 @@ function dropUserEmail() {
     userEmailContent.style.flexDirection = 'column'
     userEmailContent.style.alignItems = 'flex-start'
     document.getElementById('email-button').style.display = "block"
+    this.compareUserEmail()
 }
 
 function upUserEmail() {
@@ -114,6 +116,7 @@ function dropUserPass() {
     userpassContent.style.flexDirection = 'column'
     userpassContent.style.alignItems = 'flex-start'
     document.getElementById('pass-button').style.display = "block"
+    this.compareUserPass()
 }
 
 function upUserPass() {
@@ -123,4 +126,13 @@ function upUserPass() {
     upIcon.style.display = "none"
     document.getElementById('user-pass-content').style.display = 'none'
     document.getElementById('pass-button').style.display = "none"
+}
+
+function getPage() {
+    let pagePath = window.location.pathname
+    if (pagePath.indexOf('conta.html') >= 0) {
+        document.getElementById('acc-link').className += 'active'
+    } else if (pagePath.indexOf('dashboard.html') >= 0) {
+        document.getElementById('dash-link').className += 'active'
+    }
 }

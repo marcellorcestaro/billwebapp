@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../javascript/script.js"></script>
-    <title>Document</title>
+    <title>Billwebapp</title>
 </head>
 
 <body>
@@ -18,8 +18,8 @@
         <input type="checkbox" class="btn-menu" id="btn-menu">
         <label class="menu-icon" for="btn-menu"><span class="nav-icon"></span></label>
         <ul class="menu">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Conta</a></li>
+            <li><a href="dashboard.html" id="dash-link">Dashboard</a></li>
+            <li><a href="conta.html" id="acc-link">Conta</a></li>
             <li><a href="#">Sair</a></li>
         </ul>
     </nav>
@@ -27,18 +27,18 @@
     <section class="content">
         <h1>Meus dados:</h1>
         <article class="user-data" id="user-name">
-            <label>Nome<br><div class="underline-label"></div></label>
-            <label class="data-icon" id="name-drop" onclick="expandUserName()">&#x2b;</label>
-            <label class="data-icon" id="name-up" onclick="upUserName()">&#x2212;</label>
+            <label><strong>Nome</strong><br><div class="underline-label"></div></label>
+            <label class="data-icon" id="name-drop" onclick="expandUserName()"><strong>&#x2b;</strong></label>
+            <label class="data-icon" id="name-up" onclick="upUserName()"><strong>&#x2212;</strong></label>
             <div id="user-name-content" class="user-content">
                 <input type="text" id="txt-name" class="txt-fields">
             </div>
             <button type="submit" id="name-button" class="button">Alterar</button>
         </article>
         <article class="user-data" id="user-email">
-            <label>Email<br><div class="underline-label"></div></label>
-            <label class="data-icon" id="email-drop" onclick="dropUserEmail()">&#x2b;</label>
-            <label class="data-icon" id="email-up" onclick="upUserEmail()">&#x2212;</label>
+            <label><strong>Email</strong><br><div class="underline-label"></div></label>
+            <label class="data-icon" id="email-drop" onclick="dropUserEmail()"><strong>&#x2b;</strong></label>
+            <label class="data-icon" id="email-up" onclick="upUserEmail()"><strong>&#x2212;</strong></label>
             <div id="user-email-content" class="user-content">
                 <label for="txt-email-atual">Atual</label>
                 <input type="email" id="txt-email-atual" class="txt-fields">
@@ -49,9 +49,9 @@
             <button type="submit" id="email-button" class="button">Alterar</button>
         </article>
         <article class="user-data" id="user-pass">
-            <label>Senha<br><div class="underline-label"></div></label>
-            <label class="data-icon" id="pass-drop" onclick="dropUserPass()">&#x2b;</label>
-            <label class="data-icon" id="pass-up" onclick="upUserPass()">&#x2212;</label>
+            <label><strong>Senha</strong><br><div class="underline-label"></div></label>
+            <label class="data-icon" id="pass-drop" onclick="dropUserPass()"><strong>&#x2b;</strong></label>
+            <label class="data-icon" id="pass-up" onclick="upUserPass()"><strong>&#x2212;</strong></label>
             <div id="user-pass-content" class="user-content">
                 <label for="txt-pass-atual">Atual</label>
                 <input type="password" id="txt-pass-atual" class="txt-fields">
