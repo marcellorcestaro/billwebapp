@@ -6,7 +6,7 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     dataNascimento = models.DateField(null=True)
-    rendaMensal = models.FloatField()
+    rendaMensal = models.FloatField(null=True)
     saldoAtual = models.FloatField(null=True)
 
 @receiver(post_save, sender=User)
