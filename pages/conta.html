@@ -23,44 +23,51 @@
             <li><a href="#">Sair</a></li>
         </ul>
     </nav>
+    <section class="main">
 
-    <section class="content">
-        <h1>Meus dados:</h1>
-        <article class="user-data" id="user-name">
-            <label><strong>Nome</strong><br><div class="underline-label"></div></label>
-            <label class="data-icon" id="name-drop" onclick="expandUserName()"><strong>&#x2b;</strong></label>
-            <label class="data-icon" id="name-up" onclick="upUserName()"><strong>&#x2212;</strong></label>
-            <div id="user-name-content" class="user-content">
-                <input type="text" id="txt-name" class="txt-fields">
-            </div>
-            <button type="submit" id="name-button" class="button">Alterar</button>
-        </article>
-        <article class="user-data" id="user-email">
-            <label><strong>Email</strong><br><div class="underline-label"></div></label>
-            <label class="data-icon" id="email-drop" onclick="dropUserEmail()"><strong>&#x2b;</strong></label>
-            <label class="data-icon" id="email-up" onclick="upUserEmail()"><strong>&#x2212;</strong></label>
-            <div id="user-email-content" class="user-content">
-                <label for="txt-email-atual">Atual</label>
-                <input type="email" id="txt-email-atual" class="txt-fields">
-                <span id="email-span">Email incorreto</span>
-                <label for="txt-email-novo">Novo</label>
-                <input type="email" id="txt-email-novo" class="txt-fields">
-            </div>
-            <button type="submit" id="email-button" class="button">Alterar</button>
-        </article>
-        <article class="user-data" id="user-pass">
-            <label><strong>Senha</strong><br><div class="underline-label"></div></label>
-            <label class="data-icon" id="pass-drop" onclick="dropUserPass()"><strong>&#x2b;</strong></label>
-            <label class="data-icon" id="pass-up" onclick="upUserPass()"><strong>&#x2212;</strong></label>
-            <div id="user-pass-content" class="user-content">
-                <label for="txt-pass-atual">Atual</label>
-                <input type="password" id="txt-pass-atual" class="txt-fields">
-                <span id="pass-span">Senha incorreta</span>
-                <label for="txt-pass-novo">Nova</label>
-                <input type="password" id="txt-pass-novo" class="txt-fields">
-            </div>
-            <button type="submit" id="pass-button" class="button">Alterar</button>
-        </article>
+        <section class="content">
+            <h1>Meus dados:</h1>
+            <section class="user-data">
+                <article class="user-data-info" id="drop-user-name" onclick="expandUserName()">
+                    <label><strong>Nome</strong><br><div class="underline-label"></div></label>
+                    <label class="data-icon" id="name-drop"><strong>&#x2b;</strong></label>
+                </article>
+                <article class="user-data-info" id="up-user-name" onclick="upUserName()">
+                    <label><strong>Nome</strong><br><div class="underline-label"></div></label>
+                    <label class="data-icon" id="name-up"><strong>&#x2212;</strong></label>
+                </article>
+                <div id="user-name-content" class="user-content">
+                    <input type="text" id="txt-name" class="txt-fields">
+                </div>
+                <button type="submit" id="name-button" class="button">Alterar</button>
+            </section>
+            <article class="user-data" id="user-email">
+                <label><strong>Email</strong><br><div class="underline-label"></div></label>
+                <label class="data-icon" id="email-drop" onclick="dropUserEmail()"><strong>&#x2b;</strong></label>
+                <label class="data-icon" id="email-up" onclick="upUserEmail()"><strong>&#x2212;</strong></label>
+                <div id="user-email-content" class="user-content">
+                    <label for="txt-email-atual">Atual</label>
+                    <input type="email" id="txt-email-atual" class="txt-fields">
+                    <span id="email-span">Email incorreto</span>
+                    <label for="txt-email-novo">Novo</label>
+                    <input type="email" id="txt-email-novo" class="txt-fields">
+                </div>
+                <button type="submit" id="email-button" class="button">Alterar</button>
+            </article>
+            <article class="user-data" id="user-pass">
+                <label><strong>Senha</strong><br><div class="underline-label"></div></label>
+                <label class="data-icon" id="pass-drop" onclick="dropUserPass()"><strong>&#x2b;</strong></label>
+                <label class="data-icon" id="pass-up" onclick="upUserPass()"><strong>&#x2212;</strong></label>
+                <div id="user-pass-content" class="user-content">
+                    <label for="txt-pass-atual">Atual</label>
+                    <input type="password" id="txt-pass-atual" class="txt-fields">
+                    <span id="pass-span">Senha incorreta</span>
+                    <label for="txt-pass-novo">Nova</label>
+                    <input type="password" id="txt-pass-novo" class="txt-fields">
+                </div>
+                <button type="submit" id="pass-button" class="button">Alterar</button>
+            </article>
+        </section>
     </section>
 </body>
 
