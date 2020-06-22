@@ -34,7 +34,7 @@ class DespesaVariavelDetail(APIView):
     def get(self, request, id, format=None):
 
         try:
-            queryset = DespesaVariavel.objects.all().get(id=id)
+            queryset = DespesaVariavel.objects.all().get(user=id)
         except DespesaVariavel.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -44,7 +44,7 @@ class DespesaVariavelDetail(APIView):
     def put(self, request, id, format=None):
 
         try:
-            queryset = DespesaVariavel.objects.all().get(id=id)
+            queryset = DespesaVariavel.objects.all().get(user=id)
         except DespesaVariavel.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -83,7 +83,7 @@ class DespesaFixaDetail(APIView):
     def get(self, request, id, format=None):
 
         try:
-            queryset = DespesaFixa.objects.all().get(id=id)
+            queryset = DespesaFixa.objects.all().get(user=id)
         except DespesaFixa.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -93,7 +93,7 @@ class DespesaFixaDetail(APIView):
     def put(self, request, id, format=None):
 
         try:
-            queryset = DespesaFixa.objects.all().get(id=id)
+            queryset = DespesaFixa.objects.all().get(user=id)
         except DespesaFixa.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -132,7 +132,7 @@ class DespesaAdicionalDetail(APIView):
     def get(self, request, id, format=None):
 
         try:
-            queryset = DespesaAdicional.objects.all().get(id=id)
+            queryset = DespesaAdicional.objects.all().get(user=id)
         except DespesaAdicional.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -142,7 +142,7 @@ class DespesaAdicionalDetail(APIView):
     def put(self, request, id, format=None):
 
         try:
-            queryset = DespesaAdicional.objects.all().get(id=id)
+            queryset = DespesaAdicional.objects.all().get(user=id)
         except DespesaAdicional.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -181,7 +181,7 @@ class RendaDetail(APIView):
     def get(self, request, id, format=None):
 
         try:
-            queryset = Renda.objects.all().get(id=id)
+            queryset = Renda.objects.all().get(user=id)
         except Renda.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -191,7 +191,7 @@ class RendaDetail(APIView):
     def put(self, request, id, format=None):
 
         try:
-            queryset = Renda.objects.all().get(id=id)
+            queryset = Renda.objects.all().get(user=id)
         except Renda.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -230,7 +230,7 @@ class ReservaDetail(APIView):
     def get(self, request, id, format=None):
 
         try:
-            queryset = Reserva.objects.all().get(id=id)
+            queryset = Reserva.objects.all().get(user=id)
         except Reserva.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -240,7 +240,7 @@ class ReservaDetail(APIView):
     def put(self, request, id, format=None):
 
         try:
-            queryset = Reserva.objects.all().get(id=id)
+            queryset = Reserva.objects.all().get(user=id)
         except Reserva.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
