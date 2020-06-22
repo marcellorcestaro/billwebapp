@@ -14,9 +14,9 @@ function getJSON(url, callback) {
     xhr.onload = function() {
         let status = xhr.status;
         if (status === 200) {
-            console.log("Connection completed" + status);
+            console.log("Connection completed.\n Status: " + status);
         } else {
-            console.log("Connection failed" + status);
+            console.log("Connection failed.zn Status: " + status);
         }
         callback(status, xhr.response)
     }
