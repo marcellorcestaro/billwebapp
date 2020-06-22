@@ -1,0 +1,547 @@
+/* FONTES E VARIAVEIS */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+:root {
+    --secondary-color: #F0C419;
+}
+
+/* ESTILOS COMUNS */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: Roboto;
+    font-size: 100%; /* 1 */
+    line-height: 1.15; /* 1 */
+    margin: 0; /* 2 */
+}
+
+body {
+    margin: 0; 
+    padding: 0;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 3.5rem;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+/* ANIMATIONS */ 
+
+@keyframes show-overlay {
+    0%   {left: 100%;}
+    100% {left: 0;}
+}
+
+
+@keyframes hide-overlay {
+    0%   {left: 0;}
+    100% {left: 100%;}
+}
+
+/* MOBILE */
+
+#header {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin-bottom: 1em;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+#header > #logo {
+    width: 20vw;
+}
+
+#header > label {
+    grid-column-start: 12;
+    grid-column-end: 12;
+    font-size: 4rem;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#header > input {
+    display: none;
+}
+
+.overlay-in {
+    animation-play-state: initial;
+    animation: show-overlay 0.7s forwards;
+    animation-timing-function: ease-in-out;   
+}
+
+.overlay-out {
+    animation-play-state: initial;
+    animation-iteration-count: infinite;
+    animation: hide-overlay 0.7s forwards;
+    animation-timing-function: ease-in-out;   
+}
+
+#overlay {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#overlay > article {
+    margin-top: 10rem;
+    width: 75%;
+}
+
+#overlay > article > article {
+    margin-top: 5rem;
+}
+
+#overlay > button {
+    margin: 0; 
+    border: 0;
+    text-transform: none;
+    color: white;
+    background: #F0C419;
+    margin-top: 10rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+    font-size: 2.7rem;
+}
+
+#overlay > article > article > input {
+    border: 0; 
+    border-bottom: 3px solid black;
+}
+
+#first-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+    width: 100%;
+    height: 750px;
+    background-image: url('../img/splash-main.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top left; 
+}
+
+#first-row > span {
+    font-family: Roboto;
+    color: white;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: -0.045em;
+    line-height: 167.69%;
+    font-size: 4rem;
+    margin-left: 3rem;
+    margin-top: -3rem;
+}
+
+#first-row > span:nth-child(2){
+    color: black;
+}
+
+#second-row {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 7rem;
+}
+
+#second-row > button {
+    margin: 0; 
+    border: 0;
+    text-transform: none;
+    color: white;
+    background: #F0C419;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+    padding: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    font-size: 2.7rem;
+}
+
+#third-row {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    margin-top: 3rem;
+}
+
+#third-row > h1 {
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: none;
+}
+
+#third-row > h1 > span {
+    color: #F0C419;
+}
+
+#third-row > article {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #180B3C;
+}
+
+#third-row > article > span {
+    color: var(--secondary-color);
+}
+
+#fourth-row {
+    display: flex; 
+    justify-content: center;
+    margin-top: 7rem;
+    margin-bottom: 8rem;
+}
+
+#fourth-row > img {
+    width: 70%;
+}
+
+.item-legends { 
+    display: flex; 
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4rem;
+    margin-bottom: 13rem;
+}
+
+.item-legends > img {
+    width: 6rem;
+}
+
+.item-legends > article {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    color: #180B3C;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.item-legends > div {
+    width: 53px;
+    height: 5px;
+    background-color: var(--secondary-color);
+    border-radius: 30px;
+}
+
+#register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/rectangle-background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#register > section > article {
+    color: white;
+    font-weight: 300;
+    font-size: 8rem;
+    letter-spacing: -0.085em;
+}
+
+#register > section > form {
+    display: flex;
+    flex-flow: column;
+    margin-top: 3rem;
+    color: white;
+}
+
+#register > section > form > span {
+    margin-top: 6vw;
+    font-size: 3vw;
+}
+
+#register > section > form > input{
+    border: 0;
+    margin-top: 1vw;
+    font-size: 3vw;
+    background-color: var(--secondary-color);
+    border-bottom: 3px solid white;
+}
+
+#register > section > form > button {
+    margin: 0; 
+    border: 0;
+    width: 10%;
+    align-self: center;
+    margin-top: 3rem;
+    text-transform: none;
+    background-color: white;
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding-left: 2.7rem;
+    padding-right: 6rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 0.3rem;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    padding-bottom: 2rem;
+}
+
+/* DESKTOPS */
+
+@media screen and (min-width: 1024px) {
+    /* ANIMATIONS */
+    @keyframes hide-overlay {
+        0%   {left: 69%;}
+        100% {left: 100%;}
+    }
+
+
+    @keyframes show-overlay {
+        0%   {left: 100%;}
+        100% {left: 69%;}
+    }
+
+    /* ESTILOS COMUNS */
+
+    #content {
+        border: 0;
+        margin-left: 10rem;
+        margin-right: 10rem;
+        margin-top: 1rem;
+    }
+
+    /* DESKTOP */ 
+
+    #header {
+        grid-template-columns: repeat(24, 1fr);
+        height: 1rem;
+        align-items: center;
+    }
+
+    #header > #logo {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        width: 20vw;
+        max-width: 100%;
+    }
+
+    #header > label {
+        grid-column-start: 25;
+        grid-column-end: 25;
+        font-size: 2rem;
+    }
+
+        
+    #overlay {
+        position: absolute; 
+        width: 25vw;
+        height: 30vw;
+        background-color: white;
+        z-index: 1;
+        left: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        border-radius: 5px;
+        box-shadow: 1px 1px 1px 1px #ccc;
+    }
+
+    #overlay > article {
+        margin-top: 0;
+        font-size: 1.5vw;
+        width: 75%;
+    }
+
+    #overlay > article > article {
+        margin-top: 5vw;
+    }
+
+    #overlay > button {
+        margin: 0; 
+        border: 0;
+        text-transform: none;
+        color: white;
+        background: #F0C419;
+        margin-top: 5vw;
+        padding-left: 3rem;
+        padding-right: 3rem;
+
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.07);
+        border-radius: 10px;
+        font-size: 2vw;
+    }
+
+    #overlay > article > article > input {
+        border: 0; 
+        border-bottom: 2px solid black;
+    }
+
+
+    #first-row {
+        height: 50rem;
+        background-size: 60%;
+        background-position: top right;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #first-row > span {
+        margin-top: -30rem;
+        font-weight: bold;
+        font-size: 4vw;
+    }
+
+    #first-row > span:nth-child(1){
+        color: black;
+        margin-left: -13vw;
+    }
+
+    #first-row > span:nth-child(2){
+        margin-left: 1rem;
+        margin-right: 13vw;
+        color: white;
+    }
+
+    #wrapper-one{
+        display: flex; 
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        justify-content: center;
+        margin-left: 3vw;
+        margin-top: -5vh;
+    }
+
+    #second-row {
+        margin-bottom: 0rem;
+    }
+    #second-row > button {
+        width: 13rem;
+        height: 3rem;
+        font-size: 2rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-bottom: 1rem;
+        padding-top: 0.5rem;
+    }
+
+    #third-row {
+        margin-top: 1rem;
+    }
+    #third-row > h1 {
+        font-size: 3rem;
+        margin-top: 0rem;
+        margin-bottom: 1rem;;
+    }
+
+    #third-row > article {
+        margin-top: 0;
+        font-size: 1.5rem;
+    }
+
+    #fourth-row {
+        width: 35rem;
+        margin-right: 2vw;
+    }
+
+    #fourth-row > img {
+        transform: translate(-30%, -63%);
+    }
+
+    #wrapper-two {
+        display: flex; 
+        flex-direction: row;
+        justify-content: center;
+        margin-top: -25vw;
+    }
+
+    #wrapper-two > .item-legends:nth-child(1) {
+        margin-left: 0;
+
+    }
+    
+    #wrapper-two > .item-legends:nth-child(1) > img {
+        width: 4vw;
+    }
+
+    #wrapper-two > .item-legends > article {
+        flex-direction: column;
+        flex-flow: wrap;
+        align-items: center;
+        justify-content: center;
+        white-space: pre;
+        font-size: 1.3rem;
+    }
+
+    #wrapper-two > .item-legends {
+        margin-left: 17rem;
+        width: 10vw;
+        font-size: 1.8rem;
+    }
+
+    .item-legends > img {
+        max-width: 100%;
+        width: 7vw;
+    }
+
+    #register {
+        width: 100%;
+        height: 70vw;
+        align-items: center;
+    }
+
+    footer {
+        width: 100vw;
+        height: 20vw;
+        font-size: 1vw;
+        align-items: flex-end;
+    }
+
+    #register > section {
+        max-height: 25%;
+        max-width: 50%;
+        width: 70%;
+        height: 50vw;
+        margin-top: -20vw;
+    }
+
+    #register > section > article  {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+    }
+
+    #register > section > form > span {
+        font-size: 2rem;
+    }
+}
