@@ -24,27 +24,35 @@
         </ul>
     </nav>
     <section class="main">
-
-        <section class="content">
+        <header id="user-info">
             <h1>Meus dados:</h1>
+        </header>
+        <section class="content">
             <section class="user-data">
-                <article class="user-data-info" id="drop-user-name" onclick="expandUserName()">
+                <article class="user-data-info" id="name-drop" onclick="expandUserName()">
                     <label><strong>Nome</strong><br><div class="underline-label"></div></label>
-                    <label class="data-icon" id="name-drop"><strong>&#x2b;</strong></label>
+                    <label class="data-icon"><strong>&#x2b;</strong></label>
                 </article>
-                <article class="user-data-info" id="up-user-name" onclick="upUserName()">
+                <article class="user-data-info up-info" id="name-up" onclick="upUserName()">
                     <label><strong>Nome</strong><br><div class="underline-label"></div></label>
-                    <label class="data-icon" id="name-up"><strong>&#x2212;</strong></label>
+                    <label class="data-icon"><strong>&#x2212;</strong></label>
                 </article>
                 <div id="user-name-content" class="user-content">
                     <input type="text" id="txt-name" class="txt-fields">
                 </div>
-                <button type="submit" id="name-button" class="button">Alterar</button>
+                <div class="user-data-button">
+                    <button type="submit" id="name-button" class="button">Alterar</button>
+                </div>
             </section>
-            <article class="user-data" id="user-email">
-                <label><strong>Email</strong><br><div class="underline-label"></div></label>
-                <label class="data-icon" id="email-drop" onclick="dropUserEmail()"><strong>&#x2b;</strong></label>
-                <label class="data-icon" id="email-up" onclick="upUserEmail()"><strong>&#x2212;</strong></label>
+            <section class="user-data" id="user-email">
+                <article class="user-data-info" id="email-drop" onclick="dropUserEmail()">
+                    <label><strong>Email</strong><br><div class="underline-label"></div></label>
+                    <label class="data-icon"><strong>&#x2b;</strong></label>
+                </article>
+                <article class="user-data-info up-info" id="email-up" onclick="upUserEmail()">
+                    <label><strong>Email</strong><br><div class="underline-label"></div></label>
+                    <label class="data-icon"><strong>&#x2212;</strong></label>
+                </article>
                 <div id="user-email-content" class="user-content">
                     <label for="txt-email-atual">Atual</label>
                     <input type="email" id="txt-email-atual" class="txt-fields">
@@ -52,12 +60,19 @@
                     <label for="txt-email-novo">Novo</label>
                     <input type="email" id="txt-email-novo" class="txt-fields">
                 </div>
-                <button type="submit" id="email-button" class="button">Alterar</button>
-            </article>
-            <article class="user-data" id="user-pass">
-                <label><strong>Senha</strong><br><div class="underline-label"></div></label>
-                <label class="data-icon" id="pass-drop" onclick="dropUserPass()"><strong>&#x2b;</strong></label>
-                <label class="data-icon" id="pass-up" onclick="upUserPass()"><strong>&#x2212;</strong></label>
+                <div class="user-data-button">
+                    <button type="submit" id="email-button" class="button">Alterar</button>
+                </div>
+            </section>
+            <section class="user-data" id="user-pass">
+                <article class="user-data-info" id="pass-drop" onclick="dropUserPass()">
+                    <label><strong>Senha</strong><br><div class="underline-label"></div></label>
+                    <label class="data-icon"><strong>&#x2b;</strong></label>
+                </article>
+                <article class="user-data-info up-info" id="pass-up" onclick="upUserPass()">
+                    <label><strong>Senha</strong><br><div class="underline-label"></div></label>
+                    <label class="data-icon"><strong>&#x2212;</strong></label>
+                </article>
                 <div id="user-pass-content" class="user-content">
                     <label for="txt-pass-atual">Atual</label>
                     <input type="password" id="txt-pass-atual" class="txt-fields">
@@ -65,8 +80,10 @@
                     <label for="txt-pass-novo">Nova</label>
                     <input type="password" id="txt-pass-novo" class="txt-fields">
                 </div>
-                <button type="submit" id="pass-button" class="button">Alterar</button>
-            </article>
+                <div class="user-data-button">
+                    <button type="submit" id="pass-button" class="button">Alterar</button>
+                </div>
+            </section>
         </section>
     </section>
 </body>

@@ -25,11 +25,15 @@
     </nav>
     <section class="main">
         <header>
-            <h1>Ola Usuário!</h1>
+            <article id="hello-user">
+                <!-- Hello User! -->
+            </article>
             <section id="dash-user-cash">
                 <div>
                     <p>Seu saldo é de:</p>
-                    <input type="text" id="user-cash" class="important-info"></input type="text">
+                    <article id="user-cash" class="important-info">
+                        <!-- Here's current user cash -->
+                    </article>
                 </div>
                 <select id="select-month">
                     <option value="jan">Janeiro</option>
@@ -70,7 +74,7 @@
                     <div id="spend-desc" class="spend-attributes">
                         <input type="text" class="spend-txt-fields" id="txt-spend-desc">
                     </div><br>
-                    <label for="txt-value" class="spend-attribute-label"><strong>Descrição:</strong></label>
+                    <label for="txt-value" class="spend-attribute-label"><strong>R$:</strong></label>
                     <div id="spend-value" class="spend-attributes">
                         <input type="text" class="spend-txt-fields" id="txt-spend-value">
                     </div><br>
@@ -83,11 +87,11 @@
                 <article class="dash-user-data" id="user-salario">
                     <article class="dash-cash-info" id="drop-cash-info" onclick="dropSalPoupInfo()">
                         <label><strong>Salário</strong><br><div class="underline-label"></div></label>
-                        <label class="data-icon" id="salario-drop" onclick=""><strong>&#x2b;</strong></label>
+                        <label class="data-icon" id="salario-drop"><strong>&#x2b;</strong></label>
                     </article>
                     <article class="dash-cash-info up-info" id="up-cash-info" onclick="upSalPoupInfo()">
                         <label><strong>Salário</strong><br><div class="underline-label"></div></label>
-                        <label class="data-icon" id="salario-up" onclick=""><strong>&#x2212;</strong></label>
+                        <label class="data-icon" id="salario-up"><strong>&#x2212;</strong></label>
                     </article>
                     <div class="dash-user-content" id="dash-sal-content">
                         <input type="text" class="txt-sal-poup" id="txt-salario">
@@ -99,7 +103,7 @@
                 <article class="dash-user-data" id="user-poupanca">
                     <article class="dash-cash-info" id="drop-poup-info" onclick="dropSalPoupInfo()">
                         <label><strong>Poupança</strong><br><div class="underline-label"></div></label>
-                        <label class="data-icon" id="poupanca-drop" onclick=""><strong>&#x2b;</strong></label>
+                        <label class="data-icon" id="poupanca-drop"><strong>&#x2b;</strong></label>
                     </article>
                     <article class="dash-cash-info up-info" id="up-poup-info" onclick="upSalPoupInfo()">
                         <label><strong>Poupança</strong><br><div class="underline-label"></div></label>

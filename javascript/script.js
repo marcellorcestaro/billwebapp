@@ -1,4 +1,3 @@
-//Get user info
 const BASE_URL = 'https://billwebapp.herokuapp.com/api/despesa/fixa/'
 let user = {}
 
@@ -6,10 +5,55 @@ window.onload = () => {
     this.getUserInfo()
 }
 
-function getUserName() {
-    let txtUserName = document.getElementById('txt-name')
-    txtUserName.placeholder = user.categoria
+// Get current user info
+
+function getJSON(url, callback) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+        let status = xhr.status;
+        if (status === 200) {
+            console.log("Connection completed" + status);
+        } else {
+            console.log("Connection failed" + status);
+        }
+        callback(status, xhr.response)
+    }
+    xhr.send();
 }
+
+// Current page functions
+
+function getPage() {
+    let pagePath = window.location.pathname
+    if (pagePath.indexOf('conta.html') >= 0) {
+        document.getElementById('acc-link').className += 'active'
+        return 'conta'
+
+    } else if (pagePath.indexOf('dashboard.html') >= 0) {
+        document.getElementById('dash-link').className += 'active'
+        return 'dashboard'
+    }
+}
+
+
+
+function getUserInfo() {
+    let page = this.getPage()
+    let url = `${BASE_URL}`
+    getJSON(url, function(status, data) {
+        user = data[0]
+        if (page == 'dashboard') {
+            setUserCash(user)
+            setSalPoup(user)
+            setUserName(user)
+        }
+
+    })
+}
+
+//Account page functions
 
 function compareUserEmail() {
     let txtUserEmail = document.getElementById('txt-email-atual')
@@ -35,17 +79,82 @@ function compareUserPass() {
     }
 }
 
-function getUserInfo() {
-    let page = this.getPage()
-    let url = `${BASE_URL}`
-    getJSON(url, function(status, data) {
-        user = data[0]
-        if (page == 'dashboard') {
-            setUserCash(user)
-            setSalPoup(user)
-        }
+function getUserName() {
+    let txtUserName = document.getElementById('txt-name')
+    txtUserName.placeholder = user.categoria
+}
 
-    })
+function expandUserName() {
+    let dropIcon = document.getElementById('name-drop')
+    let upIcon = document.getElementById('name-up')
+    dropIcon.style.display = "none"
+    upIcon.style.display = "flex"
+    let userNameContent = document.getElementById('user-name-content')
+    userNameContent.style.display = 'flex'
+    userNameContent.style.flexDirection = 'column'
+    userNameContent.style.alignItems = 'center'
+    document.getElementById('name-button').style.display = "block"
+    this.getUserName()
+}
+
+function upUserName() {
+    let dropIcon = document.getElementById('name-drop')
+    let upIcon = document.getElementById('name-up')
+    dropIcon.style.display = "flex"
+    upIcon.style.display = "none"
+    document.getElementById('user-name-content').style.display = 'none'
+    document.getElementById('name-button').style.display = "none"
+}
+
+function dropUserEmail() {
+    let dropIcon = document.getElementById('email-drop')
+    let upIcon = document.getElementById('email-up')
+    dropIcon.style.display = "none"
+    upIcon.style.display = "flex"
+    let userEmailContent = document.getElementById('user-email-content')
+    userEmailContent.style.display = 'flex'
+    userEmailContent.style.flexDirection = 'column'
+    userEmailContent.style.alignItems = 'flex-start'
+    document.getElementById('email-button').style.display = "block"
+    this.compareUserEmail()
+}
+
+function upUserEmail() {
+    let dropIcon = document.getElementById('email-drop')
+    let upIcon = document.getElementById('email-up')
+    dropIcon.style.display = "flex"
+    upIcon.style.display = "none"
+    document.getElementById('user-email-content').style.display = 'none'
+    document.getElementById('email-button').style.display = "none"
+}
+
+function dropUserPass() {
+    let dropIcon = document.getElementById('pass-drop')
+    let upIcon = document.getElementById('pass-up')
+    dropIcon.style.display = "none"
+    upIcon.style.display = "flex"
+    let userpassContent = document.getElementById('user-pass-content')
+    userpassContent.style.display = 'flex'
+    userpassContent.style.flexDirection = 'column'
+    userpassContent.style.alignItems = 'flex-start'
+    document.getElementById('pass-button').style.display = "block"
+    this.compareUserPass()
+}
+
+function upUserPass() {
+    let dropIcon = document.getElementById('pass-drop')
+    let upIcon = document.getElementById('pass-up')
+    dropIcon.style.display = "flex"
+    upIcon.style.display = "none"
+    document.getElementById('user-pass-content').style.display = 'none'
+    document.getElementById('pass-button').style.display = "none"
+}
+
+// Dashboard page funtions
+
+function setUserName(user) {
+    let userName = document.getElementById('hello-user')
+    userName.innerHTML = `<h1>Olá ${user.destino}!</h1>`
 }
 
 function setSalPoup(user) {
@@ -58,90 +167,7 @@ function setSalPoup(user) {
 function setUserCash(user) {
     let cash = document.getElementById('user-cash')
     let total = user.valor + user.totalPrevisto
-    cash.value = `R$${total.toFixed(2).replace('.',',')}`
-}
-
-function getJSON(url, callback) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-        let status = xhr.status;
-        if (status === 200) {
-            console.log("Connection completed");
-        } else {
-            console.log("Connection failed" + status);
-        }
-        callback(status, xhr.response)
-    }
-    xhr.send();
-}
-
-//Page functions
-function expandUserName() {
-    let dropIcon = document.getElementById('name-drop')
-    let upIcon = document.getElementById('name-up')
-    dropIcon.style.display = "none"
-    upIcon.style.display = "block"
-    let userNameContent = document.getElementById('user-name-content')
-    userNameContent.style.display = 'flex'
-    userNameContent.style.flexDirection = 'column'
-    userNameContent.style.alignItems = 'center'
-    document.getElementById('name-button').style.display = "block"
-    this.getUserName()
-}
-
-function upUserName() {
-    let dropIcon = document.getElementById('name-drop')
-    let upIcon = document.getElementById('name-up')
-    dropIcon.style.display = "block"
-    upIcon.style.display = "none"
-    document.getElementById('user-name-content').style.display = 'none'
-    document.getElementById('name-button').style.display = "none"
-}
-
-function dropUserEmail() {
-    let dropIcon = document.getElementById('email-drop')
-    let upIcon = document.getElementById('email-up')
-    dropIcon.style.display = "none"
-    upIcon.style.display = "block"
-    let userEmailContent = document.getElementById('user-email-content')
-    userEmailContent.style.display = 'flex'
-    userEmailContent.style.flexDirection = 'column'
-    userEmailContent.style.alignItems = 'flex-start'
-    document.getElementById('email-button').style.display = "block"
-    this.compareUserEmail()
-}
-
-function upUserEmail() {
-    let dropIcon = document.getElementById('email-drop')
-    let upIcon = document.getElementById('email-up')
-    dropIcon.style.display = "block"
-    upIcon.style.display = "none"
-    document.getElementById('user-email-content').style.display = 'none'
-    document.getElementById('email-button').style.display = "none"
-}
-
-function dropUserPass() {
-    let dropIcon = document.getElementById('pass-drop')
-    let upIcon = document.getElementById('pass-up')
-    dropIcon.style.display = "none"
-    upIcon.style.display = "block"
-    let userpassContent = document.getElementById('user-pass-content')
-    userpassContent.style.display = 'flex'
-    userpassContent.style.flexDirection = 'column'
-    userpassContent.style.alignItems = 'flex-start'
-    document.getElementById('pass-button').style.display = "block"
-    this.compareUserPass()
-}
-
-function upUserPass() {
-    let dropIcon = document.getElementById('pass-drop')
-    let upIcon = document.getElementById('pass-up')
-    dropIcon.style.display = "block"
-    upIcon.style.display = "none"
-    document.getElementById('user-pass-content').style.display = 'none'
-    document.getElementById('pass-button').style.display = "none"
+    cash.innerHTML = `<h3><strong>R$${total.toFixed(2).replace('.',',')}</strong></h3>`
 }
 
 function dropSpend() {
@@ -235,16 +261,4 @@ function upPlanInfo() {
     dropIcon.style.display = 'flex'
     upIcon.style.display = 'none'
     planContent.style.display = 'none'
-}
-
-function getPage() {
-    let pagePath = window.location.pathname
-    if (pagePath.indexOf('conta.html') >= 0) {
-        document.getElementById('acc-link').className += 'active'
-        return 'conta'
-
-    } else if (pagePath.indexOf('dashboard.html') >= 0) {
-        document.getElementById('dash-link').className += 'active'
-        return 'dashboard'
-    }
 }

@@ -181,9 +181,10 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
 }
 
 .content {
-    padding: 30px;
+    padding: 0 30px;
     display: grid;
     grid-template-columns: 1fr;
+    width: 100%;
     max-width: 500px;
 }
 
@@ -194,38 +195,6 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     line-height: 35px;
     letter-spacing: -0.045em;
     margin-bottom: 40px;
-}
-
-.user-data {
-    width: auto;
-    height: max-content;
-    background-color: white;
-    padding: 15px 30px;
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
-    margin-bottom: 30px;
-}
-
-.user-data-info {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    cursor: pointer;
-}
-
-.user-data-info label {
-    cursor: pointer;
-}
-
-#up-user-name {
-    display: none;
-}
-
-.user-data .art-name {
-    font-weight: bolder;
 }
 
 .data-icon {
@@ -257,9 +226,14 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     border: 2px solid #F0C419;
 }
 
+
+/* Account CSS */
+
+#user-info {
+    padding-bottom: 0;
+}
+
 .user-content {
-    grid-column: 1/11;
-    grid-row: 2;
     display: none;
 }
 
@@ -289,8 +263,23 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     outline: none;
 }
 
-#up {
-    display: none;
+.user-data {
+    margin: 10px 0;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+    padding: 10px 15px;
+}
+
+.user-data-info {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.user-data-button {
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -301,6 +290,7 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     font-weight: bold;
     outline: none;
     border: none;
+    font-size: 14pt;
 }
 
 #dash-user-cash {
@@ -414,6 +404,7 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     width: 100%;
     color: white;
     margin: 10px 0;
+    text-align: center;
 }
 
 .spend-button {
@@ -435,7 +426,6 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     padding: 10px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
     display: grid;
-    /* grid-template-rows: repeat(2, 1fr); */
     grid-template-columns: 1fr;
 }
 
@@ -525,6 +515,9 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     border-radius: 3px;
     margin-bottom: 10px;
 }
+
+
+/* Menu media css */
 
 @media screen and (min-width: 620px) {
     .menu-icon {
