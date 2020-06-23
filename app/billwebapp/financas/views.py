@@ -44,7 +44,7 @@ class DespesaAdicionalDetail(APIView):
         except DespesaAdicional.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serializer = DespesaAdicionalSerializer(queryset, many-True)
+        serializer = DespesaAdicionalSerializer(queryset, many=True)
         return Response(serializer.data)
 
 class RendaDetail(APIView):
