@@ -4,6 +4,7 @@ const DESPESA_FIXA_URL = 'https://billwebapp.herokuapp.com/api/despesa/fixa/3/'
 const DESPESA_VAR_URL = 'https://billwebapp.herokuapp.com/api/despesa/variavel/3/'
 const DESPESA_ADD_URL = 'https://billwebapp.herokuapp.com/api/despesa/adicional/3/'
 
+
 window.onload = () => {
     this.getPage()
 }
@@ -38,8 +39,7 @@ function getPage() {
         document.getElementById('dash-link').className += 'active'
         this.getDashInfo()
         this.getUserReserve()
-        this.getUserDespesaFixa()
-        this.getMonthSpend()
+        this.getSpends()
         return 'dashboard'
     }
 }
@@ -154,58 +154,75 @@ function getDashInfo() {
     })
 }
 
-function getMonthSpend() {
-    let fixed = getUserDespesaFixa()
-    let add = getUserDespesaAdd()
-    let spendVar = getUserDespesaVar()
-    let monthlySpend = 0
-    for (let x = 0; x < fixed.length; i++) {
-        monthlySpend += fixed[x].valor
-    }
-    for (let y; y < add.length; y++) {
-        monthlySpend += add[y].valor
-    }
-    for (let z; z < add.length; z++) {
-        monthlySpend += spendVar[y].valor
-    }
-    console.log(monthlySpend)
-
+function getSpends() {
+    getJSON(DESPESA_FIXA_URL, function(status, data) {
+        setFixedSpends(data)
+    })
+    getJSON(DESPESA_VAR_URL, function(status, data) {
+        setVarSpends(data)
+    })
+    getJSON(DESPESA_ADD_URL, function(status, data) {
+        setAddSpends(data)
+    })
 }
 
-function getUserDespesaFixa() {
-    let url = DESPESA_FIXA_URL
-    let fixedSpend = []
-    getJSON(url, function(status, data) {
-        fixedSpend = data
-    })
-    if (fixedSpend == null) {
-        return []
+function getSoma(spend) {
+    let soma = 0
+    for (let i = 0; i < spend.length; i++) {
+        soma += spend[i].valor
     }
-    return fixedSpend
+    return soma
 }
 
-function getUserDespesaAdd() {
-    let url = DESPESA_ADD_URL
-    let addSpend = []
-    getJSON(url, function(status, data) {
-        addSpend = data
-    })
-    if (addSpend == null) {
-        return []
-    }
-    return addSpend
+function setFixedSpends(fixed_spends) {
+    let despFix = document.getElementById('desp-fix')
+    let total = getSoma(fixed_spends)
+    despFix.value = total
 }
 
-function getUserDespesaVar() {
-    let url = DESPESA_VAR_URL
-    let varSpend = []
-    getJSON(url, function(status, data) {
-        varSpend = data
-    })
-    if (varSpend == null) {
-        return []
-    }
-    return varSpend
+function setVarSpends(variable_spends) {
+    let despVar = document.getElementById('desp-var')
+    let total = getSoma(variable_spends)
+    despVar.value = total
+}
+
+function setAddSpends(add_spends) {
+    let despAdd = document.getElementById('desp-add')
+    let total = getSoma(add_spends)
+    despAdd.value = total
+}
+
+function setSpendChart() {
+    let fixed = Number(document.getElementById('desp-fix').value)
+    let variable = Number(document.getElementById('desp-var').value)
+    let aditional = Number(document.getElementById('desp-add').value)
+    var ctx = document.getElementById("myChart")
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Variável', 'Fixa', 'Adicional'],
+            datasets: [{
+                label: '',
+                data: [variable, fixed, aditional],
+                backgroundColor: [
+                    '#26B99A',
+                    '#F0C419',
+                    '#E57E25'
+                ],
+                borderColor: [
+                    '#26B99A',
+                    '#F0C419',
+                    '#E57E25'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            }
+        }
+    });
 }
 
 function getUserReserve() {
@@ -238,7 +255,6 @@ function setPoup(user) {
 
 function setUserCash(user) {
     let cash = document.getElementById('user-cash')
-        // let total = user.valor + user.totalPrevisto
     cash.innerHTML = `<h3><strong>R$${user.profile.saldoAtual.toFixed(2).replace('.',',')}</strong></h3>`
 }
 
@@ -312,6 +328,7 @@ function upMonthInfo() {
     let dropIcon = document.getElementById('drop-month-info')
     let upIcon = document.getElementById('up-month-info')
     let monthSpend = document.getElementById('month-spend')
+    let chart = document.getElementById('graph-month-spend')
     dropIcon.style.display = 'flex'
     upIcon.style.display = 'none'
     monthSpend.style.display = 'none'

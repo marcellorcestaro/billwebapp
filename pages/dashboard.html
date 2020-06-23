@@ -6,13 +6,14 @@
     <meta name="author" content="Caik Moraes - caikdemoraes@gmail.com">
     <meta name="author" content="Marcello Cestaro - ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../javascript/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
+    <link rel="stylesheet" href="../css/dashboardAccount.css">
+    <script src="../javascript/dashboardAccount.js"></script>
     <title>Billwebapp</title>
 </head>
 
 <body>
-
     <nav>
         <label class="logo"><img src="../img/test 4.png" alt="Logo"></label>
         <input type="checkbox" class="btn-menu" id="btn-menu">
@@ -119,7 +120,7 @@
             </section>
             <section id="dash-month-spend">
                 <article class="dash-user-data">
-                    <article class="dash-cash-info" id="drop-month-info" onclick="dropMonthInfo()">
+                    <article class="dash-cash-info" id="drop-month-info" onclick="dropMonthInfo(); setSpendChart()">
                         <label><strong>Gastos do mês</strong><br><div class="underline-label"></div></label>
                         <label class="data-icon" id="month-drop"><strong>&#x2b;</strong></label>
                     </article>
@@ -133,8 +134,13 @@
                             <label>Despesa Fixa<div class="spend-color fix"></div></label>
                             <label>Despesa Adicional<div class="spend-color add"></div></label>
                         </div>
+                        <div id="chartInfo">
+                            <input type="number" id="desp-fix">
+                            <input type="number" id="desp-var">
+                            <input type="number" id="desp-add">
+                        </div>
                         <div id="graph-month-spend">
-                            <img src="../img/pie-chart 5.png" alt="Grafico de despesas">
+                            <canvas id="myChart" width="100vw" height="100"></canvas>
                         </div>
                     </div>
                 </article>
