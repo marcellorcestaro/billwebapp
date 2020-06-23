@@ -33,6 +33,7 @@ function getPage() {
     let pagePath = window.location.pathname
     if (pagePath.indexOf('conta.html') >= 0) {
         document.getElementById('acc-link').className += 'active'
+        this.getAccountInfo()
         return 'conta'
 
     } else if (pagePath.indexOf('dashboard.html') >= 0) {
@@ -46,28 +47,14 @@ function getPage() {
 
 //Account page functions
 
-function compareUserEmail(user) {
-    let txtUserEmail = document.getElementById('txt-email-atual')
-    txtUserEmail.onchange = () => {
-        let emailSpan = document.getElementById('email-span')
-        if (txtUserEmail.value != user.email) {
-            emailSpan.style.display = 'block'
-        } else {
-            emailSpan.style.display = 'none'
-        }
-    }
-}
 
-function compareUserPass(user) {
-    let txtUserPass = document.getElementById('txt-pass-atual')
-    txtUserPass.onchange = () => {
-        let passSpan = document.getElementById('pass-span')
-        if (txtUserPass.value != user.email) {
-            passSpan.style.display = 'block'
-        } else {
-            passSpan.style.display = 'none'
-        }
-    }
+
+function getAccountInfo() {
+    getJSON(BASE_URL, function(status, data) {
+        this.getUserName(data)
+        this.compareUserEmail(data)
+        this.compareUserPass(data)
+    })
 }
 
 function getUserName(user) {
@@ -85,7 +72,6 @@ function expandUserName() {
     userNameContent.style.flexDirection = 'column'
     userNameContent.style.alignItems = 'center'
     document.getElementById('name-button').style.display = "block"
-    this.getUserName()
 }
 
 function upUserName() {
@@ -95,6 +81,30 @@ function upUserName() {
     upIcon.style.display = "none"
     document.getElementById('user-name-content').style.display = 'none'
     document.getElementById('name-button').style.display = "none"
+}
+
+function compareUserEmail(user) {
+    let txtUserEmail = document.getElementById('txt-email-atual')
+    txtUserEmail.onchange = () => {
+        let emailSpan = document.getElementById('email-span')
+        if (txtUserEmail.value != user.email) {
+            emailSpan.style.display = 'block'
+        } else {
+            emailSpan.style.display = 'none'
+        }
+    }
+}
+
+function compareUserPass(user) {
+    let txtUserPass = document.getElementById('txt-pass-atual')
+    txtUserPass.onchange = () => {
+        let passSpan = document.getElementById('pass-span')
+        if (txtUserPass.value != user.username) {
+            passSpan.style.display = 'block'
+        } else {
+            passSpan.style.display = 'none'
+        }
+    }
 }
 
 function dropUserEmail() {
@@ -107,7 +117,6 @@ function dropUserEmail() {
     userEmailContent.style.flexDirection = 'column'
     userEmailContent.style.alignItems = 'flex-start'
     document.getElementById('email-button').style.display = "block"
-    this.compareUserEmail()
 }
 
 function upUserEmail() {
@@ -129,7 +138,6 @@ function dropUserPass() {
     userpassContent.style.flexDirection = 'column'
     userpassContent.style.alignItems = 'flex-start'
     document.getElementById('pass-button').style.display = "block"
-    this.compareUserPass()
 }
 
 function upUserPass() {
