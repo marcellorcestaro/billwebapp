@@ -38,7 +38,7 @@ class DespesaVariavelDetail(APIView):
         except DespesaVariavel.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serializer = DespesaVariavelSerializer(queryset)
+        serializer = DespesaVariavelSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def put(self, request, id, format=None):
@@ -87,7 +87,7 @@ class DespesaFixaDetail(APIView):
         except DespesaFixa.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serializer = DespesaFixaSerializer(queryset)
+        serializer = DespesaFixaSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def put(self, request, id, format=None):
@@ -136,7 +136,7 @@ class DespesaAdicionalDetail(APIView):
         except DespesaAdicional.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serializer = DespesaAdicionalSerializer(queryset)
+        serializer = DespesaAdicionalSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def put(self, request, id, format=None):
@@ -185,7 +185,7 @@ class RendaDetail(APIView):
         except Renda.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serializer = RendaSerializer(queryset)
+        serializer = RendaSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def put(self, request, id, format=None):
@@ -234,7 +234,7 @@ class ReservaDetail(APIView):
         except Reserva.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serializer = ReservaSerializer(queryset)
+        serializer = ReservaSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def put(self, request, id, format=None):
