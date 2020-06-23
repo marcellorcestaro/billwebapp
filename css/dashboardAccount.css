@@ -509,12 +509,27 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
 }
 
 .plan-percent {
+    display: inline-grid; 
+    grid-template-columns: repeat(100, 1fr);
     width: 100%;
+    height: 1vh;
     background-color: #F0C419;
     color: white;
     text-align: center;
     border-radius: 3px;
     margin-bottom: 10px;
+}
+
+#gastoPorcBar {
+    background-color: #F0C419;
+    grid-column-start: 1;
+    grid-column-end: 0;
+}
+
+#naoGastoPorcBar {
+    background-color: #FFF8DE;
+    grid-column-start: 101;
+    grid-column-end: 102;
 }
 
 #chartInfo {

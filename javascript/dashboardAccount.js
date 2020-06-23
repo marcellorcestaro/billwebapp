@@ -4,6 +4,13 @@ const DESPESA_FIXA_URL = 'https://billwebapp.herokuapp.com/api/despesa/fixa/3/'
 const DESPESA_VAR_URL = 'https://billwebapp.herokuapp.com/api/despesa/variavel/3/'
 const DESPESA_ADD_URL = 'https://billwebapp.herokuapp.com/api/despesa/adicional/3/'
 
+var userGlob;
+var despFixGlob; 
+var despVarGlob; 
+var despAddGlob;
+var reservaGlob;
+
+var didAllFinish = 0;
 
 window.onload = () => {
     this.getPage()
@@ -148,21 +155,29 @@ function getDashInfo() {
     let user = {}
     getJSON(url, function(status, data) {
         user = data
+        userGlob = data
         setUserCash(user)
         setUserName(user)
         setSal(user)
+        setPorcBar(user)
     })
 }
 
 function getSpends() {
     getJSON(DESPESA_FIXA_URL, function(status, data) {
+        despFixGlob = data;
         setFixedSpends(data)
+        didAllFinish += 1
     })
     getJSON(DESPESA_VAR_URL, function(status, data) {
+        despVarGlob = data;
         setVarSpends(data)
+        didAllFinish += 1
     })
     getJSON(DESPESA_ADD_URL, function(status, data) {
+        despAddGlob = data;
         setAddSpends(data)
+        didAllFinish += 1
     })
 }
 
@@ -172,6 +187,56 @@ function getSoma(spend) {
         soma += spend[i].valor
     }
     return soma
+}
+
+function setPorcBar(){
+    if(!(despFixGlob && despVarGlob && despAddGlob && userGlob && reservaGlob)){
+        setTimeout(() => {
+            setPorcBar()
+        }, 500);
+        return false
+    } 
+    
+    var soma = 0;
+    var max_length = Math.max(despAddGlob.length, despVarGlob.length, despFixGlob.length, reservaGlob.length)
+
+    for(i = 0; i < max_length; i++){
+        if(despAddGlob[i]){
+            console.log('Despesa adicional: ' + despAddGlob[i].valor)
+            soma += despAddGlob[i].valor
+        }
+        if(despVarGlob[i]){
+            console.log('Despesa variável: ' + despVarGlob[i].valor)
+            soma += despVarGlob[i].valor
+        }
+        if(despFixGlob[i]){
+            console.log('Despesa fixa: ' + despFixGlob[i].valor)
+            soma += despFixGlob[i].valor
+        }
+        if(reservaGlob[i]){
+            soma += reservaGlob[i].valor
+        }
+    }
+
+    rendaRemanescente = userGlob.profile.rendaMensal - soma
+    porcRenda = Math.floor((soma / userGlob.profile.rendaMensal)*100)
+    
+    let cash = document.getElementById('user-cash')
+    cash.innerHTML = "<h3><strong>R$"+ rendaRemanescente.toFixed(2) + "</strong></h3>"
+
+    let porcFilled = document.getElementById('gastoPorcBar')
+    let porcUnfilled = document.getElementById('naoGastoPorcBar')
+
+    let gasto = document.getElementById('gastoPorc')
+    let naoGasto = document.getElementById('naoGastoPorc')
+
+    porcFilled.style.gridColumnEnd = porcRenda; 
+    porcUnfilled.style.gridColumnStart = porcRenda;
+
+    gasto.innerHTML = "R$" + soma.toFixed(2) ; 
+
+    naoGasto.innerHTML = "R$" + userGlob.profile.rendaMensal.toFixed(2) ;
+
 }
 
 function setFixedSpends(fixed_spends) {
@@ -230,6 +295,7 @@ function getUserReserve() {
     let user = []
     getJSON(url, function(status, data) {
         user = data
+        reservaGlob = data;
         this.setPoup(user)
     })
 }
