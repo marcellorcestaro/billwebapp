@@ -17,6 +17,7 @@ textarea {
     font-size: 100%; /* 1 */
     line-height: 1.15; /* 1 */
     margin: 0; /* 2 */
+    font-weight: 300;
 }
 
 body {
@@ -24,8 +25,7 @@ body {
     padding: 0;
     font-family: Roboto;
     font-style: normal;
-    font-size: 3.5rem;
-    font-weight: 300;
+    font-size: 5vw;
     overflow-x: hidden;
 }
 
@@ -42,506 +42,511 @@ body {
     100% {left: 100%;}
 }
 
-/* MOBILE */
-
-#header {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    margin-bottom: 1em;
-    align-items: center;
-    margin-top: 1rem;
+@keyframes show-overlay-desktop {
+    0%   {left: 100%;}
+    100% {left: 65%;}
 }
 
-#header > #logo {
-    width: 20vw;
-}
 
-#header > label {
-    grid-column-start: 12;
-    grid-column-end: 12;
-    font-size: 4rem;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-#header > input {
-    display: none;
+@keyframes hide-overlay-desktop {
+    0%   {left: 65%;}
+    100% {left: 100%;}
 }
 
 .overlay-in {
-    animation-play-state: initial;
-    animation: show-overlay 0.7s forwards;
-    animation-timing-function: ease-in-out;   
+    animation-name: show-overlay;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
 .overlay-out {
-    animation-play-state: initial;
-    animation-iteration-count: infinite;
-    animation: hide-overlay 0.7s forwards;
-    animation-timing-function: ease-in-out;   
+    animation-name: hide-overlay;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
-#overlay {
-    position: absolute; 
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    z-index: 1;
-    left: 100%;
-    display: flex;
-    flex-direction: column;
+/* MOBILE */
+
+header {
+    display: grid;
+    margin: 1vw 2vw 2vw 2vw;
+    grid-template-columns: repeat(12, 1fr);
     align-items: center;
-}
-
-#overlay > article {
-    margin-top: 10rem;
-    width: 75%;
-}
-
-#overlay > article > article {
-    margin-top: 5rem;
-}
-
-#overlay > button {
-    margin: 0; 
-    border: 0;
-    text-transform: none;
-    color: white;
-    background: #F0C419;
-    margin-top: 10rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
-
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.07);
-    border-radius: 10px;
-    font-size: 2.7rem;
-}
-
-#overlay > article > article > input {
-    border: 0; 
-    border-bottom: 3px solid black;
-}
-
-#first-row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    flex-direction: column;
-    width: 100%;
-    height: 750px;
-    background-image: url('../img/splash-main.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: top left; 
-}
-
-#first-row > span {
-    font-family: Roboto;
-    color: white;
-    font-style: normal;
-    font-weight: normal;
-    letter-spacing: -0.045em;
-    line-height: 167.69%;
-    font-size: 4rem;
-    margin-left: 3rem;
-    margin-top: -3rem;
-}
-
-#first-row > span:nth-child(2){
     color: black;
 }
 
-#second-row {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    margin-top: 7rem;
-}
-
-#second-row > button {
-    margin: 0; 
-    border: 0;
-    text-transform: none;
-    color: white;
-    background: #F0C419;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.07);
-    border-radius: 10px;
-    padding: 1rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    font-size: 2.7rem;
-}
-
-#third-row {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
-    margin-top: 3rem;
-}
-
-#third-row > h1 {
-    font-weight: 300;
-    font-style: normal;
+header > a {
+    color: black;
     text-decoration: none;
+    grid-column-start: 13;
+    grid-column-end: 13;
 }
 
-#third-row > h1 > span {
-    color: #F0C419;
+header > img {
+    width: 25vw;
+    max-height: 100%;
 }
 
-#third-row > article {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #180B3C;
-}
-
-#third-row > article > span {
-    color: var(--secondary-color);
-}
-
-#fourth-row {
+#content {
     display: flex; 
-    justify-content: center;
-    margin-top: 7rem;
-    margin-bottom: 8rem;
-}
-
-#fourth-row > img {
-    width: 70%;
-}
-
-.item-legends { 
-    display: flex; 
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.4rem;
-    margin-bottom: 13rem;
-}
-
-.item-legends > img {
-    width: 6rem;
-}
-
-.item-legends > article {
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-    color: #180B3C;
-    margin-bottom: 2rem;
+    flex-flow: column nowrap;
     align-items: center;
 }
 
-.item-legends > div {
-    width: 53px;
-    height: 5px;
-    background-color: var(--secondary-color);
-    border-radius: 30px;
-}
-
-#register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
+#overlay {
+    display: none;
+    position: fixed; 
     width: 100%;
     height: 100%;
-    background-image: url('../img/rectangle-background.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+    margin-top: -1%;
+    z-index: 2;
+    background-color: white;
 }
 
-#register > section > article {
-    color: white;
-    font-weight: 300;
-    font-size: 8rem;
-    letter-spacing: -0.085em;
-}
-
-#register > section > form {
+#overlay > form {
     display: flex;
-    flex-flow: column;
-    margin-top: 3rem;
+    flex-flow: wrap column;
+    font-size: 100%;
+    margin: 0% 10% 0% 10%;
+}
+
+#overlay > form > input {
+    border: 0; 
+    border-bottom: 2px solid black;
+}
+
+#overlay > form > span{
+    margin-top: 10%;
+}
+
+#overlay > form > span:nth-child(1) {
+    margin-top: 30%;
+}
+
+#overlay > form > span:nth-child(5){
+    text-align: end;
+    margin-top: 3%;
+    font-size: 80%;
+}
+
+#overlay > form > button {
+    align-self: center;
+    margin-top: 12.5%;
+    border: 0; 
+
+    padding: 1% 10% 1% 10%;
+    background-color: var(--secondary-color);
+    color: white;
+    
+    border-radius: 10px;
+}
+
+#sec1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('../img/splash-main.png');
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-top: 73.42%;
+}
+
+#sec1 > article {
+    display: flex;
+    flex-flow: column wrap;
+    margin-left: 5%;
+    margin-top: -73.42%;
+    margin-bottom: 30%;
+}
+
+#sec1 > article > span {
+    padding-top: 3vw;
+    font-style: normal;
+    font-weight: bold;
+}
+
+#sec1 > article > span:nth-child(1){
     color: white;
 }
 
-#register > section > form > span {
-    margin-top: 6vw;
-    font-size: 3vw;
+#sec1 > article > span:nth-child(2){
+    color: black;
 }
 
-#register > section > form > input{
-    border: 0;
-    margin-top: 1vw;
-    font-size: 3vw;
+#wrapper-one {
+    display: flex;
+    flex-flow: nowrap column;
+    align-items: center;
+    justify-content: center;
+}
+
+#sec2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+}
+
+#sec2 > button {
+    /* Overriding presets */
     background-color: var(--secondary-color);
-    border-bottom: 3px solid white;
+    border: 0;
+
+    /* New button */ 
+
+    padding: 2% 3% 2% 3%;
+    color: white;
+    width: 40%;
+    font-size: 5vw;
+    border-radius: 10px;
 }
 
-#register > section > form > button {
-    margin: 0; 
+#sec2 > article {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+#sec2 > #second-article {
+    margin-top: 5%;
+}
+
+#sec2 > #first-article > span {
+    font-size: 10vw;
+    text-align: center;
+    white-space: pre;
+}
+
+#sec2 > #first-article > span:nth-child(1) {
+    color: var(--secondary-color);
+}
+
+#sec2 > #second-article > span {
+    font-size: 5vw;
+}
+
+#sec2 > #second-article > span:nth-child(2) {
+    color: var(--secondary-color);
+}
+
+#sec3 {
+    margin-top: 10vw;
+}
+
+#sec3 > img {
+    width: 85vw;
+}
+
+#sec4 {
+    margin-top: 15vw;
+}
+
+#sec4 > article {
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15vw;
+}
+
+#sec4 > article > span {
+    margin-top: 2vw;
+    font-size: 4vw;
+    width: 60%;
+    text-align: center;
+}
+
+#sec4 > article > img{
+    width: 14vw;
+    display: flex; 
+    flex-flow: wrap column;
+}
+
+#sec4 > article:nth-child(1) > img {
+    width: 11vw;
+}
+
+#sec4 > article > div {
+    margin-top: 3vw;
+    border-radius: 20px;
+    width: 5vw;
+    height: 0.5vw;
+    background-color: var(--secondary-color);
+}
+
+#sec5 {
+    display: flex; 
+    flex-flow: wrap column;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+    background-image: url("../img/rectangle-background.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-top: 178.89%;
+}
+
+#sec5 > article {
+    margin-top: -158%;
+    display: flex; 
+    flex-flow: nowrap column;
+    align-items: center;
+    justify-content: center;
+}
+
+#sec5 > article > span {
+    color: white; 
+    font-size: 10vw;
+}
+
+#sec5 > article > form {
+    margin-top: 20%;
+    display: flex; 
+    flex-flow: nowrap column;
+    color: white;
+    font-size: 5.5vw;
+}
+
+#sec5 > article > form > input {
+    margin-bottom: 5vw;
     border: 0;
-    width: 10%;
+    background-color: var(--secondary-color);
+    border-bottom: 3px solid white;;
+}
+
+#sec5 > article > form > button {
+    margin-top: 10vw;
+    width: 25%;
     align-self: center;
-    margin-top: 3rem;
-    text-transform: none;
+    
+    padding: 1vw;
+    border: 0;
+    border-radius: 10px;
     background-color: white;
     color: var(--secondary-color);
-    font-size: 2.5rem;
+
+    font-size: 5vw;
     font-weight: bold;
-    padding-left: 2.7rem;
-    padding-right: 6rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-radius: 0.3rem;
 }
 
-footer {
-    background-color: var(--secondary-color);
-    display: flex;
-    justify-content: center;
-    font-size: 2rem;
+#sec5 > footer {
     color: white;
-    padding-bottom: 2rem;
+    font-size: 3vw;
+    justify-self: flex-end;
+    margin-top: 0;
+    margin-bottom: 0;
 }
-
-/* DESKTOPS */
 
 @media screen and (min-width: 1024px) {
-    /* ANIMATIONS */
-    @keyframes hide-overlay {
-        0%   {left: 69%;}
-        100% {left: 100%;}
+    body {
+        margin-left: 10vw;
+        margin-right: 10vw;
+        overflow-x: hidden;
     }
 
-
-    @keyframes show-overlay {
-        0%   {left: 100%;}
-        100% {left: 69%;}
-    }
-
-    /* ESTILOS COMUNS */
-
-    #content {
-        border: 0;
-        margin-left: 10rem;
-        margin-right: 10rem;
-        margin-top: 1rem;
-    }
-
-    /* DESKTOP */ 
-
-    #header {
-        grid-template-columns: repeat(24, 1fr);
-        height: 1rem;
-        align-items: center;
-    }
-
-    #header > #logo {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        width: 20vw;
-        max-width: 100%;
-    }
-
-    #header > label {
-        grid-column-start: 25;
-        grid-column-end: 25;
-        font-size: 2rem;
-    }
-
-        
-    #overlay {
-        position: absolute; 
-        width: 25vw;
-        height: 30vw;
-        background-color: white;
-        z-index: 1;
-        left: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        border-radius: 5px;
-        box-shadow: 1px 1px 1px 1px #ccc;
-    }
-
-    #overlay > article {
-        margin-top: 0;
-        font-size: 1.5vw;
-        width: 75%;
-    }
-
-    #overlay > article > article {
-        margin-top: 5vw;
-    }
-
-    #overlay > button {
-        margin: 0; 
-        border: 0;
-        text-transform: none;
-        color: white;
-        background: #F0C419;
-        margin-top: 5vw;
-        padding-left: 3rem;
-        padding-right: 3rem;
-
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-
-        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.07);
-        border-radius: 10px;
-        font-size: 2vw;
-    }
-
-    #overlay > article > article > input {
-        border: 0; 
-        border-bottom: 2px solid black;
-    }
-
-
-    #first-row {
-        height: 50rem;
-        background-size: 60%;
-        background-position: top right;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #first-row > span {
-        margin-top: -30rem;
-        font-weight: bold;
-        font-size: 4vw;
-    }
-
-    #first-row > span:nth-child(1){
-        color: black;
-        margin-left: -13vw;
-    }
-
-    #first-row > span:nth-child(2){
-        margin-left: 1rem;
-        margin-right: 13vw;
-        color: white;
-    }
-
-    #wrapper-one{
-        display: flex; 
-        flex-direction: row-reverse;
-        align-items: flex-start;
-        justify-content: center;
-        margin-left: 3vw;
-        margin-top: -5vh;
-    }
-
-    #second-row {
-        margin-bottom: 0rem;
-    }
-    #second-row > button {
-        width: 13rem;
-        height: 3rem;
-        font-size: 2rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        padding-bottom: 1rem;
-        padding-top: 0.5rem;
-    }
-
-    #third-row {
-        margin-top: 1rem;
-    }
-    #third-row > h1 {
-        font-size: 3rem;
-        margin-top: 0rem;
-        margin-bottom: 1rem;;
-    }
-
-    #third-row > article {
-        margin-top: 0;
-        font-size: 1.5rem;
-    }
-
-    #fourth-row {
-        width: 35rem;
-        margin-right: 2vw;
-    }
-
-    #fourth-row > img {
-        transform: translate(-30%, -63%);
-    }
-
-    #wrapper-two {
-        display: flex; 
-        flex-direction: row;
-        justify-content: center;
-        margin-top: -25vw;
-    }
-
-    #wrapper-two > .item-legends:nth-child(1) {
-        margin-left: 0;
-
-    }
-    
-    #wrapper-two > .item-legends:nth-child(1) > img {
-        width: 4vw;
-    }
-
-    #wrapper-two > .item-legends > article {
-        flex-direction: column;
-        flex-flow: wrap;
-        align-items: center;
-        justify-content: center;
-        white-space: pre;
-        font-size: 1.3rem;
-    }
-
-    #wrapper-two > .item-legends {
-        margin-left: 17rem;
-        width: 10vw;
-        font-size: 1.8rem;
-    }
-
-    .item-legends > img {
-        max-width: 100%;
+    header > img {
         width: 7vw;
     }
 
-    #register {
-        width: 100%;
-        height: 70vw;
-        align-items: center;
+    header > a {
+        font-size: 2vw;
     }
 
-    footer {
-        width: 100vw;
-        height: 20vw;
-        font-size: 1vw;
-        align-items: flex-end;
+    .overlay-in {
+        animation-name: show-overlay-desktop;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+    
+    .overlay-out {
+        animation-name: hide-overlay-desktop;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
     }
 
-    #register > section {
-        max-height: 25%;
-        max-width: 50%;
-        width: 70%;
-        height: 50vw;
-        margin-top: -20vw;
+    #overlay { 
+        position: absolute;
+        background-color: white;
+        right: 10%; 
+        top: 7vw;
+        width: 25%;
+        height: 25vw;
+        margin-top: -1%;
+        z-index: 2;
+        box-shadow: 10px 10px 10px #777777;
+        border-radius: 30px;
+        /* background-color: white; */
     }
 
-    #register > section > article  {
+    #overlay > form > span {
+        font-size: 30%;
+    }
+
+    #overlay > form {
         display: flex;
+        flex-flow: wrap column;
+        font-size: 100%;
+        margin: 0% 10% 0% 10%;
+    }
+    
+    #overlay > form > input {
+        border: 0; 
+        border-bottom: 2px solid black;
+        font-size: 30%;
+    }
+    
+    #overlay > form > span{
+        margin-top: 5%;
+    }
+    
+    #overlay > form > span:nth-child(1) {
+        margin-top: 30%;
+    }
+    
+    #overlay > form > span:nth-child(5){
+        text-align: end;
+        margin-top: 3%;
+        font-size: 30%;
+    }
+    
+    #overlay > form > button {
+        align-self: center;
+        margin-top: 12.5%;
+        border: 0; 
+
+        font-size: 30%;
+    
+        padding: 1% 10% 1% 10%;
+        background-color: var(--secondary-color);
+        color: white;
+        
+        border-radius: 10px;
+    }
+    
+
+    #sec1 {
+        padding-top: 45%;
+    }
+
+    #sec1 > article {
+        margin-top: -45%;
+        font-size: 85%;
+        flex-flow: nowrap row;
+    }
+
+    #sec1 > article > span {
+        font-weight: 400;
+    }
+
+    #sec1 > article > span:nth-child(1){
+        color: black;
+    }
+
+    #sec1 > article > span:nth-child(2){
+        margin-left: 1%;
+        color: white;
+    }
+
+    #wrapper-one {
+        display: flex;
+        flex-flow: nowrap row-reverse;
         align-items: center;
         justify-content: center;
-        font-size: 5rem;
     }
 
-    #register > section > form > span {
-        font-size: 2rem;
+    #sec2 {
+        width: 40%;
+        margin-top: 8%;
+        padding-left: 10%;
+    }
+
+    #sec2 > button {
+        font-size: 40%;
+    }
+
+    #sec2 > #second-article > span {
+        font-size: 30%;
+    }
+
+    #sec2 > #first-article > span {
+        font-size: 50%;
+    }
+
+    #sec3 {
+        margin-top: -20%;
+    }
+
+    #sec3 > img {
+        width: 25vw;
+    }
+
+    #sec4 {
+        display: flex;
+        width: 100%;
+        margin-top: 10%;
+        margin-bottom: -15%;
+    }
+
+    #sec4 > article {
+        flex-flow: nowrap column;
+        width: 40%;
+    }
+
+    #sec4 > article > img {
+        width: 6vw;
+    }
+
+    #sec4 > article:nth-child(1) > img {
+        width: 4vw;
+    }
+
+    #sec4 > article > span {
+        font-size: 30%;
+    }
+
+    #sec4 > article > div {
+        margin-top: 1vw;
+    }
+
+    #sec5 {
+        flex-flow: wrap column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        background-size: cover;
+        font-size: 2vw;
+        padding-top: 0; 
+        height: 70vw;
+        background-image: url('../img/rectangle-desktop.png');
+    }
+
+    #sec5 > article > span {
+        font-size: 3vw;
+    }
+
+    #sec5 > article { 
+        margin-top: 10%;
+    }
+
+    #sec5 > article > form {
+        width: 25vw;
+        font-size: 1.5vw;
+        margin-top: 2vw;
+    }
+
+    #sec5 > article > form > button {
+        margin-top: 0.5%;
+        font-size: 1.2vw;
+        padding: 1%;
+    }
+
+    #sec5 > footer {
+        font-size: 1vw;
+        margin-top: 3%;
+        margin-bottom: 0;
     }
 }

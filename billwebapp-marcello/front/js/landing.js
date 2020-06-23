@@ -1,14 +1,10 @@
-window.onload = function () {
-    var hamburguerInput = document.getElementById("hamburger");
-    hamburguerInput.addEventListener('click', this.handleHamburger)
-}
+var isClicked = false;
 
-function handleHamburger(event) {
-    let hamburger = document.getElementById("label-burg");
-    var isChecked = event.target.checked
-    var overlay = document.getElementById("overlay")
+
+function hamburgerClick() {
+    let hamburger = document.getElementById("hamburger");
+    let overlay = document.getElementById("overlay");
     let body = document.getElementById("body");
-    let html = document.getElementById("html");
 
     overlay.style.animation = 'none'
 
@@ -17,32 +13,28 @@ function handleHamburger(event) {
     
     overlay.offsetHeight;
 
-    if(isChecked){
-        overlay.style.animation = null
-        overlay.style.display = "flex"
-        overlay.classList.add('overlay-in')
-        body.style.overflow = 'hidden'
-        body.style.height = '100%';
-        body.style.position = 'fixed';
-        html.style.overflow = 'hidden'
-        html.style.height = '100%';
-        hamburger.innerHTML = "&#10005"
-        console.log('overlay in')
-
-    } else {
+    if(isClicked) {
         overlay.style.animation = null
         overlay.classList.add('overlay-out')
-        body.style.height = null
-        body.style.overflow = null
-        body.style.position = null;
-        html.style.overflow = null
-        html.style.height = null
-        hamburger.innerHTML = "&#9776"
+
+        hamburger.classList.remove('fa-times')
+        hamburger.classList.add('fa-bars')
 
         setTimeout(() => {
             overlay.style.display = "none"
         }, 1000)
         console.log('overlay out')
+        isClicked = false;
+    } else {
+        overlay.style.animation = null
+        overlay.style.display = "block"
 
+        hamburger.classList.remove('fa-bars')
+        hamburger.classList.add('fa-times')
+
+        overlay.classList.add('overlay-in')
+
+        isClicked = true;
     }
+
 }

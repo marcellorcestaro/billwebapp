@@ -3,97 +3,92 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Bill WebApp</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="js/landing.js"></script>
 </head>
 <body id="body">
-    <section id="content">
-        <section id="header">
-            <img id="logo" src="img/logo.png">
-            <label for="hamburger" id="label-burg">&#9776;</label>
-            <input type="checkbox" id="hamburger" autocomplete="off"/>
-        </section>
-        <section id="overlay" style="display: none;">
-            <article>
-                <article>
-                    <span>Email</span>
-                    <input type="text" />
-                </article>
-                <article>
-                    <span>Senha</span>
-                    <input type="password" />
-                </article>
-            </article>
+    <header>
+        <img src="img/logo.png" />
+        <a href="javascript:void(0);" onclick="hamburgerClick()">
+            <i class="fa fa-bars" id="hamburger"></i>
+        </a>
+    </header>
+    <section id="overlay">
+        <form>
+            <span>Email:<br /></span>
+            <input type="text">
+            <span>Senha:<br /></span>
+            <input type="password">
+            <span>Esqueci minha senha</span>
             <button>
                 Entrar
             </button>
-        </section>
-        <section id="first-row">
-            <span>Organize suas</span><span>contas ;)</span>
-        </section>
+        </form>
+    </section>
+    <section id="sec1">
+        <article>
+            <span>Organize suas</span>
+            <span> contas ;)</span>
+        </article>
+    </section>
+    <section id="content">
         <section id="wrapper-one">
-            <article>
-                <section id="second-row">
-                    <button>
-                        Registrar
-                    </button>
-                </section>
-                <section id="third-row">
-                    <h1><span>Fácil</span> , rápido</h1>
-                    <article>
-                        sem precisar fazer <br><span>download de nenhum aplicativo</span><br>para organizar os seus gastos!
-                    </article>
-                </section>
-            </article>
-            <section id="fourth-row">
-                <img src="img/celular.png">
-            </section>
-        </section>
-        <section id="wrapper-two">
-            <section class="item-legends">
-                <img src="img/desconto.png">
-                <article>
-                    <span>Categorize todas </span><span>as suas dispesas.</span>
-                </article>
-                <div></div>
-            </section>
-            <section class="item-legends">
-                <img src="img/get-money.png">
-                <article>
-                    <span>Planeje o quanto </span><span>você irá gastar</span><span> no seu mês.</span>
-                </article>
-                <div></div>
-            </section>
-            <section class="item-legends">
-                <img src="img/profits.png">
-                <article>
-                    <span>Acompanhe </span><span>visualmente pelos </span><span>gráficos</span>
-                </article>
-                <div></div>
-            </section>
-        </section>
-    </section>
-    <section id="register">
-        <section>
-            <article><span>Registrar</span></article>
-            <form>
-                <span>Email:</span><br>
-                <input type=text name="email">
-                <span>Confirmar Email:</span><br>
-                <input type=text name="email">
-                <span>Senha:</span><br>
-                <input type=text name="email">
-                <span>Confirmar Senha:</span><br>
-                <input type=text name="email">
+            <section id="sec2">
                 <button>
-                    OK
+                    Registrar
                 </button>
-            </form>
+                <article id="first-article">
+                    <span>Fácil</span><span> , rápido</span>
+                </article>
+                <article id="second-article">
+                    <span>sem precisar fazer </span>
+                    <span>download de nenhum aplicativo</span> 
+                    <span>para organizar os seus gastos!</span>
+                </article>
+            </section>
+            <section id="sec3">
+                <img src="img/celular.png" />
+            </section>
         </section>
-
+        <section id="sec4">
+            <article>
+                <img src="img/desconto.png"/>
+                <span>Categorize todas as suas despesas</span>
+                <div></div>
+            </article>
+            <article>
+                <img src="img/get-money.png" />
+                <span>Categorize todas as suas despesas</span>
+                <div></div>
+            </article>
+            <article>
+                <img src="img/profits.png" />
+                <span>Categorize todas as suas despesas</span>
+                <div></div>
+            </article>
+        </section>
+        <section id="sec5">
+            <article>
+                <span>Registrar</span>
+                <form>
+                    Email: <br>
+                    <input type="text">
+                    Confirmar email: <br>
+                    <input type="text">
+                    Senha:<br>
+                    <input type="password">
+                    Confirmar senha:<br>
+                    <input type="password">
+                    <button>
+                        OK
+                    </button>
+                </form>
+            </article>
+            <footer>
+                Copyright © 2020 Bill Company <br>
+                Todos os direitos reservados
+            </footer>
+        </section>
     </section>
-    <footer>
-        <span>Copyright © 2020 Bill Company <br>
-            Todos os direitos reservados</span>
-    </footer>
 </body>
 </html>
