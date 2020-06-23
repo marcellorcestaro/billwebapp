@@ -1,6 +1,5 @@
 var isClicked = false;
 
-
 function hamburgerClick() {
     let hamburger = document.getElementById("hamburger");
     let overlay = document.getElementById("overlay");
