@@ -527,7 +527,7 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
 }
 
 #naoGastoPorcBar {
-    background-color: #FFF8DE;
+    background-color: #ffe791;
     grid-column-start: 101;
     grid-column-end: 102;
 }
