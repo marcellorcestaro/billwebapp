@@ -27,13 +27,13 @@
     <section class="main">
         <header>
             <article id="hello-user">
-                <!-- Hello User! -->
+                <img src="../img/Loading.gif" alt="Carregando..." class="loading-gif">
             </article>
             <section id="dash-user-cash">
                 <div>
                     <p>Seu saldo é de:</p>
                     <article id="user-cash" class="important-info">
-                        <!-- Here's current user cash -->
+                        <img src="../img/Loading.gif" alt="Carregando..." class="loading-gif">
                     </article>
                 </div>
                 <select id="select-month">
@@ -68,9 +68,9 @@
                         <label for="type-variavel">Variável</label>
                         <input type="radio" id="type-fixa" name="spend-type" value="fixa">
                         <label for="type-fixa">Fixa</label>
-                        <input type="radio" id="type-adicional" name="spend-type" value="adicional"> 
+                        <input type="radio" id="type-adicional" name="spend-type" value="adicional">
                         <label for="type-adicional">Adicional</label>
-                        <input type="radio" id="type-reserva" name="spend-type" value="reserva"> 
+                        <input type="radio" id="type-reserva" name="spend-type" value="reserva">
                         <label for="type-reserva">Reserva</label>
                     </div><br>
                     <label for="txt-desc" class="spend-attribute-label"><strong>Descrição:</strong></label>
@@ -89,11 +89,15 @@
             <section id="dash-sal-poup">
                 <article class="dash-user-data" id="user-salario">
                     <article class="dash-cash-info" id="drop-cash-info" onclick="dropSalPoupInfo()">
-                        <label><strong>Salário</strong><br><div class="underline-label"></div></label>
+                        <label><strong>Salário</strong><br>
+                            <div class="underline-label"></div>
+                        </label>
                         <label class="data-icon" id="salario-drop"><strong>&#x2b;</strong></label>
                     </article>
                     <article class="dash-cash-info up-info" id="up-cash-info" onclick="upSalPoupInfo()">
-                        <label><strong>Salário</strong><br><div class="underline-label"></div></label>
+                        <label><strong>Salário</strong><br>
+                            <div class="underline-label"></div>
+                        </label>
                         <label class="data-icon" id="salario-up"><strong>&#x2212;</strong></label>
                     </article>
                     <div class="dash-user-content" id="dash-sal-content">
@@ -105,11 +109,15 @@
                 </article>
                 <article class="dash-user-data" id="user-poupanca">
                     <article class="dash-cash-info" id="drop-poup-info" onclick="dropSalPoupInfo()">
-                        <label><strong>Poupança</strong><br><div class="underline-label"></div></label>
+                        <label><strong>Poupança</strong><br>
+                            <div class="underline-label"></div>
+                        </label>
                         <label class="data-icon" id="poupanca-drop"><strong>&#x2b;</strong></label>
                     </article>
                     <article class="dash-cash-info up-info" id="up-poup-info" onclick="upSalPoupInfo()">
-                        <label><strong>Poupança</strong><br><div class="underline-label"></div></label>
+                        <label><strong>Poupança</strong><br>
+                            <div class="underline-label"></div>
+                        </label>
                         <label class="data-icon" id="poupanca-up" onclick=""><strong>&#x2212;</strong></label>
                     </article>
                     <div class="dash-user-content" id="dash-poup-content">
@@ -123,11 +131,15 @@
             <section id="dash-month-spend">
                 <article class="dash-user-data">
                     <article class="dash-cash-info" id="drop-month-info" onclick="dropMonthInfo(); setSpendChart()">
-                        <label><strong>Gastos do mês</strong><br><div class="underline-label"></div></label>
+                        <label><strong>Gastos do mês</strong><br>
+                            <div class="underline-label"></div>
+                        </label>
                         <label class="data-icon" id="month-drop"><strong>&#x2b;</strong></label>
                     </article>
                     <article class="dash-cash-info up-info" id="up-month-info" onclick="upMonthInfo()">
-                        <label><strong>Gastos do mês</strong><br><div class="underline-label"></div></label>
+                        <label><strong>Gastos do mês</strong><br>
+                            <div class="underline-label"></div>
+                        </label>
                         <label class="data-icon" id="month-up"><strong>&#x2212;</strong></label>
                     </article>
                     <div id="month-spend">
@@ -150,11 +162,15 @@
             <section id="dash-plan">
                 <article class="dash-user-data">
                     <article class="dash-cash-info" id="drop-plan-info" onclick="dropPlanInfo()">
-                        <label><strong>Planejamento</strong><br><div class="underline-label"></div></label>
+                        <label><strong>Planejamento</strong><br>
+                            <div class="underline-label"></div>
+                        </label>
                         <label class="data-icon" id="plan-drop"><strong>&#x2b;</strong></label>
                     </article>
                     <article class="dash-cash-info up-info" id="up-plan-info" onclick="upPlanInfo()">
-                        <label><strong>Planejamento</strong><br><div class="underline-label"></div></label>
+                        <label><strong>Planejamento</strong><br>
+                            <div class="underline-label"></div>
+                        </label>
                         <label class="data-icon" id="plan-up"><strong>&#x2212;</strong></label>
                     </article>
                     <div id="plan-content-info">

@@ -536,6 +536,9 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     display: none;
 }
 
+.loading-gif{
+    width: 50px;
+}
 
 /* Menu media css */
 
