@@ -365,12 +365,26 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     padding: 0 15px;
     grid-column: 1;
     width: 100%;
-    transition: all .4s;
     max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+[collapsible='true'] {
+    display: block;
+}
+
+[collapsible='false'] {
+    display: none;
 }
 
 #set-spend>form {
-    padding-top: 20px;
+    padding: 20px 0;
+}
+
+.btn-submit-form {
+    display: flex;
+    justify-content: center;
 }
 
 #set-spend .spend-attributes {
@@ -414,7 +428,6 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     margin: 10px 0;
     text-align: center;
 }
-
 
 #dash-sal-poup {
     display: grid;
@@ -471,12 +484,22 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
 }
 
 #month-spend {
-    display: none;
+    box-sizing: border-box;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    margin-top: 20px;
+    padding: 0 20px;
+    margin-top: -5px;
+    margin: 0 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease-out;
+    background: #ffe79177;
+}
+
+#month-spend>div{
+    width: fit-content;
 }
 
 #month-spend label {

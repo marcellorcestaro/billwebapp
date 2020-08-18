@@ -59,7 +59,7 @@
                     <label id="spend-drop" collapsible='true'><strong>&#x2b;</strong></label>
                     <label id="spend-up" collapsible='false'><strong>&#x2212;</strong></label>
                 </button>
-                <section id="set-spend">
+                <div id="set-spend">
                     <form action="">
                         <label class="spend-attribute-label"><strong>Categoria:</strong></label>
                         <div id="spend-category" class="spend-attributes">
@@ -80,11 +80,11 @@
                         <div id="spend-value" class="spend-attributes">
                             <input type="text" class="spend-txt-fields" id="txt-spend-value">
                         </div><br>
-                        <!-- <div class="spend-button">
-                            <button class="dash-button">Inserir</button>
-                        </div> -->
+                        <div class="btn-submit-form">
+                            <input type="submit" value="Inserir" class="dash-button">
+                        </div>
                     </form>
-                </section>
+                </div>
             </section>
             <section id="dash-sal-poup">
                 <article class="dash-user-data" id="user-salario">
@@ -129,35 +129,28 @@
                 </article>
             </section>
             <section id="dash-month-spend">
-                <article class="dash-user-data">
-                    <article class="dash-cash-info" id="drop-month-info" onclick="dropMonthInfo(); setSpendChart()">
+                <article class="dash-user-data collapsible">
+                    <article class="dash-cash-info" id="drop-month-info">
                         <label><strong>Gastos do mês</strong><br>
                             <div class="underline-label"></div>
                         </label>
-                        <label class="data-icon" id="month-drop"><strong>&#x2b;</strong></label>
+                        <label class="data-icon" collapsible='true'><strong>&#x2b;</strong></label>
+                        <label class="data-icon" collapsible='false'><strong>&#x2212;</strong></label>
                     </article>
-                    <article class="dash-cash-info up-info" id="up-month-info" onclick="upMonthInfo()">
-                        <label><strong>Gastos do mês</strong><br>
-                            <div class="underline-label"></div>
-                        </label>
-                        <label class="data-icon" id="month-up"><strong>&#x2212;</strong></label>
-                    </article>
-                    <div id="month-spend">
-                        <div id="month-spend-labels">
-                            <label>Despesa Variável<div class="spend-color var"></div></label>
-                            <label>Despesa Fixa<div class="spend-color fix"></div></label>
-                            <label>Despesa Adicional<div class="spend-color add"></div></label>
-                        </div>
-                        <div id="chartInfo">
-                            <input type="number" id="desp-fix">
-                            <input type="number" id="desp-var">
-                            <input type="number" id="desp-add">
-                        </div>
-                        <div id="graph-month-spend">
-                            <canvas id="myChart" width="100vw" height="100"></canvas>
-                        </div>
-                    </div>
                 </article>
+                <div id="month-spend">
+                    <div>
+                        <label>Despesa Variável<div class="spend-color var"></div></label>
+                        <label>Despesa Fixa<div class="spend-color fix"></div></label>
+                        <label>Despesa Adicional<div class="spend-color add"></div></label>
+                    </div>
+                    <canvas id="myChart" width="100vw" height="100"></canvas>
+                </div>
+                <div id="chartInfo">
+                    <input type="number" id="desp-fix">
+                    <input type="number" id="desp-var">
+                    <input type="number" id="desp-add">
+                </div>
             </section>
             <section id="dash-plan">
                 <article class="dash-user-data">

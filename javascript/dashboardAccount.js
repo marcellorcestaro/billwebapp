@@ -350,7 +350,6 @@ function getCollapsibleButtons() {
             this.classList.toggle('active');
             let content = this.nextElementSibling
             if(content.style.maxHeight) {
-                element.style.width = `100px`
                 element.style.borderRadius = '3px'
                 content.style.maxHeight = null
                 mustCollapse(element, false)
@@ -358,7 +357,6 @@ function getCollapsibleButtons() {
             else {
                 mustCollapse(element, true)
                 content.style.maxHeight = content.scrollHeight + "px"
-                element.style.width = content.scrollWidth + 'px'
                 element.style.borderRadius = '0px'
             }
         })
@@ -414,24 +412,7 @@ function upPoup() {
     btnPoup.style.display = 'none'
 }
 
-function dropMonthInfo() {
-    let dropIcon = document.getElementById('drop-month-info')
-    let upIcon = document.getElementById('up-month-info')
-    let monthSpend = document.getElementById('month-spend')
-    dropIcon.style.display = 'none'
-    upIcon.style.display = 'flex'
-    monthSpend.style.display = 'flex'
-}
 
-function upMonthInfo() {
-    let dropIcon = document.getElementById('drop-month-info')
-    let upIcon = document.getElementById('up-month-info')
-    let monthSpend = document.getElementById('month-spend')
-    let chart = document.getElementById('graph-month-spend')
-    dropIcon.style.display = 'flex'
-    upIcon.style.display = 'none'
-    monthSpend.style.display = 'none'
-}
 
 function dropPlanInfo() {
     let dropIcon = document.getElementById('drop-plan-info')
@@ -452,3 +433,4 @@ function upPlanInfo() {
 }
 
 getCollapsibleButtons()
+setSpendChart()
