@@ -245,12 +245,37 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
 
 .form label {
     margin: 5px 0;
+    padding: 5px 5px;
 }
 
 .form .insert-item{
     text-decoration: underline;
 }
 
+.form input[type='radio'] {
+    display: none;
+}
+.form label.active {
+    background: #f1d04b;
+}
+
+.form .item-info{
+    padding: 10px 0;
+}
+
+.form .item-info input{
+    margin-bottom: 10px;
+    color: white;
+}
+
+.form .item-info input[type='text'] {
+    outline: none;
+    text-align: center;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid white;
+    width: 100%;
+}
 /* Menu media css */
 
 @media screen and (min-width: 620px) {
