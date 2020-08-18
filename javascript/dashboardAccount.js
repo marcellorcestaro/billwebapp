@@ -22,11 +22,9 @@ function getJSON(url, callback) {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.responseType = 'json';
-    xhr.onreadystatechange = function() {
+    xhr.onload = function() {
         let status = xhr.status;
-        if (status === 200) {
-            console.log("Connection completed.\n Status: " + status);
-        } else {
+        if (status >= 400) {
             console.log("Connection failed.zn Status: " + status);
         }
         callback(status, xhr.response)
@@ -332,13 +330,40 @@ function setUserCash(user) {
     cash.innerHTML = `<h3><strong>R$${user.profile.saldoAtual.toFixed(2).replace('.',',')}</strong></h3>`
 }
 
-function dropSpend() {
-    let buttonAdd = document.getElementById('btn-add-spend')
-    let buttonUp = document.getElementById('btn-up-spend')
-    let setSpend = document.getElementById('set-spend')
-    buttonAdd.style.display = 'none'
-    buttonUp.style.display = 'flex'
-    setSpend.style.display = 'block'
+function mustCollapse(item, mustCollapse){
+    const collapseTrue = item.querySelector(`[collapsible='true']`)
+    const collapseFalse = item.querySelector(`[collapsible='false']`)
+    if(mustCollapse) {
+        collapseTrue.style.display = 'none'
+        collapseFalse.style.display = 'block'
+    }
+    else {
+        collapseTrue.style.display = 'block'
+        collapseFalse.style.display = 'none'
+    }
+}
+
+function getCollapsibleButtons() {
+    const btnCollapsible = document.querySelectorAll('.collapsible')
+    btnCollapsible.forEach(element => {
+        element.addEventListener('click', function () {
+            this.classList.toggle('active');
+            let content = this.nextElementSibling
+            if(content.style.maxHeight) {
+                element.style.width = `100px`
+                element.style.borderRadius = '3px'
+                content.style.maxHeight = null
+                mustCollapse(element, false)
+            }
+            else {
+                mustCollapse(element, true)
+                content.style.maxHeight = content.scrollHeight + "px"
+                element.style.width = content.scrollWidth + 'px'
+                element.style.borderRadius = '0px'
+            }
+        })
+    })
+    
 }
 
 function upSpend() {
@@ -425,3 +450,5 @@ function upPlanInfo() {
     upIcon.style.display = 'none'
     planContent.style.display = 'none'
 }
+
+getCollapsibleButtons()

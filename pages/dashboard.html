@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
     <link rel="stylesheet" href="../css/dashboardAccount.css">
     <link rel="shortcut icon" href="../img/Icon.png" />
-    <script src="../javascript/dashboardAccount.js"></script>
     <title>Billwebapp</title>
 </head>
 
@@ -55,36 +54,36 @@
         </header>
         <section class="content">
             <section id="add-spend">
-                <button id="btn-add-spend" onclick="dropSpend()">
+                <button id="btn-add-spend" class="collapsible">
                     <label id="label-add-spend">Adicionar</label>
-                    <label id="spend-drop"><strong>&#x2b;</strong></label>
-                </button>
-                <button id="btn-up-spend" onclick="upSpend()">
-                    <label id="spend-up"><strong>&#x2212;</strong></label>
+                    <label id="spend-drop" collapsible='true'><strong>&#x2b;</strong></label>
+                    <label id="spend-up" collapsible='false'><strong>&#x2212;</strong></label>
                 </button>
                 <section id="set-spend">
-                    <label class="spend-attribute-label"><strong>Categoria:</strong></label>
-                    <div id="spend-category" class="spend-attributes">
-                        <input type="radio" id="type-variavel" name="spend-type" value="variável">
-                        <label for="type-variavel">Variável</label>
-                        <input type="radio" id="type-fixa" name="spend-type" value="fixa">
-                        <label for="type-fixa">Fixa</label>
-                        <input type="radio" id="type-adicional" name="spend-type" value="adicional">
-                        <label for="type-adicional">Adicional</label>
-                        <input type="radio" id="type-reserva" name="spend-type" value="reserva">
-                        <label for="type-reserva">Reserva</label>
-                    </div><br>
-                    <label for="txt-desc" class="spend-attribute-label"><strong>Descrição:</strong></label>
-                    <div id="spend-desc" class="spend-attributes">
-                        <input type="text" class="spend-txt-fields" id="txt-spend-desc">
-                    </div><br>
-                    <label for="txt-value" class="spend-attribute-label"><strong>R$:</strong></label>
-                    <div id="spend-value" class="spend-attributes">
-                        <input type="text" class="spend-txt-fields" id="txt-spend-value">
-                    </div><br>
-                    <div class="spend-button">
-                        <button class="dash-button">Inserir</button>
-                    </div>
+                    <form action="">
+                        <label class="spend-attribute-label"><strong>Categoria:</strong></label>
+                        <div id="spend-category" class="spend-attributes">
+                            <input type="radio" id="type-variavel" name="spend-type" value="variável">
+                            <label for="type-variavel">Variável</label>
+                            <input type="radio" id="type-fixa" name="spend-type" value="fixa">
+                            <label for="type-fixa">Fixa</label>
+                            <input type="radio" id="type-adicional" name="spend-type" value="adicional">
+                            <label for="type-adicional">Adicional</label>
+                            <input type="radio" id="type-reserva" name="spend-type" value="reserva">
+                            <label for="type-reserva">Reserva</label>
+                        </div><br>
+                        <label for="txt-desc" class="spend-attribute-label"><strong>Descrição:</strong></label>
+                        <div id="spend-desc" class="spend-attributes">
+                            <input type="text" class="spend-txt-fields" id="txt-spend-desc">
+                        </div><br>
+                        <label for="txt-value" class="spend-attribute-label"><strong>R$:</strong></label>
+                        <div id="spend-value" class="spend-attributes">
+                            <input type="text" class="spend-txt-fields" id="txt-spend-value">
+                        </div><br>
+                        <!-- <div class="spend-button">
+                            <button class="dash-button">Inserir</button>
+                        </div> -->
+                    </form>
                 </section>
             </section>
             <section id="dash-sal-poup">
@@ -185,6 +184,7 @@
             </section>
         </section>
     </section>
+    <script src="../javascript/dashboardAccount.js"></script>
 </body>
 
 </html>

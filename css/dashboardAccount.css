@@ -331,6 +331,7 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     display: flex;
     justify-content: space-between;
     border-radius: 3px;
+    transition: all .3s;
 }
 
 #btn-up-spend {
@@ -356,14 +357,20 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
 }
 
 #set-spend {
+    box-sizing: border-box;
     background-color: #F0C419;
     color: white;
     font-weight: bolder;
     text-align: left;
-    padding: 15px;
+    padding: 0 15px;
     grid-column: 1;
     width: 100%;
-    display: none;
+    transition: all .4s;
+    max-height: 0;
+}
+
+#set-spend>form {
+    padding-top: 20px;
 }
 
 #set-spend .spend-attributes {
@@ -408,10 +415,6 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     text-align: center;
 }
 
-.spend-button {
-    display: flex;
-    justify-content: center;
-}
 
 #dash-sal-poup {
     display: grid;
