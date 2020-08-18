@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Caik Moraes - caikdemoraes@gmail.com">
-    <meta name="author" content="Marcello Cestaro - ">
+    <meta name="author" content="Marcello Cestaro">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
@@ -15,7 +15,7 @@
 
 <body>
     <nav>
-        <label class="logo"><img src="../img/test 4.png" alt="Logo"></label>
+        <label class="logo"><img src="../img/logo.png" alt="Logo"></label>
         <input type="checkbox" class="btn-menu" id="btn-menu">
         <label class="menu-icon" for="btn-menu"><span class="nav-icon"></span></label>
         <ul class="menu">
@@ -24,159 +24,62 @@
             <li><a href="index.html">Sair</a></li>
         </ul>
     </nav>
-    <section class="main">
-        <header>
-            <article id="hello-user">
-                <img src="../img/Loading.gif" alt="Carregando..." class="loading-gif">
-            </article>
-            <section id="dash-user-cash">
-                <div>
-                    <p>Seu saldo é de:</p>
-                    <article id="user-cash" class="important-info">
-                        <img src="../img/Loading.gif" alt="Carregando..." class="loading-gif">
-                    </article>
-                </div>
-                <select id="select-month">
-                    <option value="jan">Janeiro</option>
-                    <option value="fev">Fevereiro</option>
-                    <option value="mar">Março</option>
-                    <option value="abr">Abril</option>
-                    <option value="mai">Maio</option>
-                    <option value="jun">Junho</option>
-                    <option value="jul">Julho</option>
-                    <option value="ago">Agosto</option>
-                    <option value="set">Setembro</option>
-                    <option value="out">Outubro</option>
-                    <option value="nov">Novembro</option>
-                    <option value="dez">Dezembro</option>
+    <main>
+        <section class="content" bill-user-name>
+            <p class="welcome">
+                Olá Marcello!
+                <!-- <img src="../img/Loading.gif" alt="Carregando nome de usuário." class="loading"> -->
+            </p>
+            <div class="user-info">
+                <p>
+                    Seu saldo é: <br>
+                    <span class="cash">R$500,00</span>
+                </p>
+                <!-- <img src="../img/Loading.gif" alt="Carregando nome de usuário." class="loading"> -->
+                <select name="month" id="month" class="select-month">
+                    <option value="Janeiro">Janeiro</option>
+                    <option value="Fevereiro">Fevereiro</option>
+                    <option value="Março">Março</option>
+                    <option value="Abril">Abril</option>
+                    <option value="Maio">Maio</option>
+                    <option value="Junho">Junho</option>
+                    <option value="Julho">Julho</option>
+                    <option value="Agosto">Agosto</option>
+                    <option value="Setembro">Setembro</option>
+                    <option value="Outubro">Outubro</option>
+                    <option value="Novembro">Novembro</option>
+                    <option value="Dezembro">Dezembro</option>
                 </select>
-            </section>
-        </header>
-        <section class="content">
-            <section id="add-spend">
-                <button id="btn-add-spend" class="collapsible">
-                    <label id="label-add-spend">Adicionar</label>
-                    <label id="spend-drop" collapsible='true'><strong>&#x2b;</strong></label>
-                    <label id="spend-up" collapsible='false'><strong>&#x2212;</strong></label>
-                </button>
-                <div id="set-spend">
-                    <form action="">
-                        <label class="spend-attribute-label"><strong>Categoria:</strong></label>
-                        <div id="spend-category" class="spend-attributes">
-                            <input type="radio" id="type-variavel" name="spend-type" value="variável">
-                            <label for="type-variavel">Variável</label>
-                            <input type="radio" id="type-fixa" name="spend-type" value="fixa">
-                            <label for="type-fixa">Fixa</label>
-                            <input type="radio" id="type-adicional" name="spend-type" value="adicional">
-                            <label for="type-adicional">Adicional</label>
-                            <input type="radio" id="type-reserva" name="spend-type" value="reserva">
-                            <label for="type-reserva">Reserva</label>
-                        </div><br>
-                        <label for="txt-desc" class="spend-attribute-label"><strong>Descrição:</strong></label>
-                        <div id="spend-desc" class="spend-attributes">
-                            <input type="text" class="spend-txt-fields" id="txt-spend-desc">
-                        </div><br>
-                        <label for="txt-value" class="spend-attribute-label"><strong>R$:</strong></label>
-                        <div id="spend-value" class="spend-attributes">
-                            <input type="text" class="spend-txt-fields" id="txt-spend-value">
-                        </div><br>
-                        <div class="btn-submit-form">
-                            <input type="submit" value="Inserir" class="dash-button">
-                        </div>
-                    </form>
-                </div>
-            </section>
-            <section id="dash-sal-poup">
-                <article class="dash-user-data" id="user-salario">
-                    <article class="dash-cash-info" id="drop-cash-info" onclick="dropSalPoupInfo()">
-                        <label><strong>Salário</strong><br>
-                            <div class="underline-label"></div>
-                        </label>
-                        <label class="data-icon" id="salario-drop"><strong>&#x2b;</strong></label>
-                    </article>
-                    <article class="dash-cash-info up-info" id="up-cash-info" onclick="upSalPoupInfo()">
-                        <label><strong>Salário</strong><br>
-                            <div class="underline-label"></div>
-                        </label>
-                        <label class="data-icon" id="salario-up"><strong>&#x2212;</strong></label>
-                    </article>
-                    <div class="dash-user-content" id="dash-sal-content">
-                        <input type="text" class="txt-sal-poup" id="txt-salario">
-                        <div class="dash-alter-button" id="btn-salario">
-                            <button class="dash-button">Alterar</button>
-                        </div>
-                    </div>
-                </article>
-                <article class="dash-user-data" id="user-poupanca">
-                    <article class="dash-cash-info" id="drop-poup-info" onclick="dropSalPoupInfo()">
-                        <label><strong>Poupança</strong><br>
-                            <div class="underline-label"></div>
-                        </label>
-                        <label class="data-icon" id="poupanca-drop"><strong>&#x2b;</strong></label>
-                    </article>
-                    <article class="dash-cash-info up-info" id="up-poup-info" onclick="upSalPoupInfo()">
-                        <label><strong>Poupança</strong><br>
-                            <div class="underline-label"></div>
-                        </label>
-                        <label class="data-icon" id="poupanca-up" onclick=""><strong>&#x2212;</strong></label>
-                    </article>
-                    <div class="dash-user-content" id="dash-poup-content">
-                        <input type="text" class="txt-sal-poup" id="txt-poupanca">
-                        <div class="dash-alter-button" id="btn-poupanca">
-                            <button class="dash-button ">Alterar</button>
-                        </div>
-                    </div>
-                </article>
-            </section>
-            <section id="dash-month-spend">
-                <article class="dash-user-data collapsible">
-                    <article class="dash-cash-info" id="drop-month-info">
-                        <label><strong>Gastos do mês</strong><br>
-                            <div class="underline-label"></div>
-                        </label>
-                        <label class="data-icon" collapsible='true'><strong>&#x2b;</strong></label>
-                        <label class="data-icon" collapsible='false'><strong>&#x2212;</strong></label>
-                    </article>
-                </article>
-                <div id="month-spend">
-                    <div>
-                        <label>Despesa Variável<div class="spend-color var"></div></label>
-                        <label>Despesa Fixa<div class="spend-color fix"></div></label>
-                        <label>Despesa Adicional<div class="spend-color add"></div></label>
-                    </div>
-                    <canvas id="myChart" width="100vw" height="100"></canvas>
-                </div>
-                <div id="chartInfo">
-                    <input type="number" id="desp-fix">
-                    <input type="number" id="desp-var">
-                    <input type="number" id="desp-add">
-                </div>
-            </section>
-            <section id="dash-plan">
-                <article class="dash-user-data">
-                    <article class="dash-cash-info" id="drop-plan-info" onclick="dropPlanInfo()">
-                        <label><strong>Planejamento</strong><br>
-                            <div class="underline-label"></div>
-                        </label>
-                        <label class="data-icon" id="plan-drop"><strong>&#x2b;</strong></label>
-                    </article>
-                    <article class="dash-cash-info up-info" id="up-plan-info" onclick="upPlanInfo()">
-                        <label><strong>Planejamento</strong><br>
-                            <div class="underline-label"></div>
-                        </label>
-                        <label class="data-icon" id="plan-up"><strong>&#x2212;</strong></label>
-                    </article>
-                    <div id="plan-content-info">
-                        <div class="plan-percent">
-                            <div id="gastoPorcBar"></div>
-                            <div id="naoGastoPorcBar"></div>
-                        </div>
-                        <p><span id="gastoPorc"></span> gastos de <span id="naoGastoPorc"></span></p>
-                    </div>
-                </article>
-            </section>
+            </div>
         </section>
-    </section>
+        <section class="content add-item">
+            <button class="bill-button btn-new-item">
+                Adicionar
+                <span class="icon" collapsible='true'>&#x2b;</span>
+                <span class="icon" collapsible='false'>&#x2212;</span>
+            </button>
+            <form action="" class="form">
+                <div class="item-category">
+                    <label>Categoria:</label><br>
+                    <input type="radio" name="category" id="variable">
+                    <label for="variable">Variável</label>
+                    <input type="radio" name="category" id="fixed">
+                    <label for="fixed">Fixa</label>
+                    <input type="radio" name="category" id="aditional">
+                    <label for="aditional">Adicional</label>
+                    <input type="radio" name="category" id="income">
+                    <label for="income">Renda</label>
+                </div>
+                <div class="item-info">
+                    <label for="txt-description">Descrição:</label>
+                    <input type="text" id="txt-description" name="txt-description"><br>
+                    <label for="value">Valor:</label>
+                    <input type="text" name="value" id="value"><br>
+                </div>
+                <input type="submit" value="Inserir" class="bill-button insert-item">
+            </form>
+        </section>
+    </main>
     <script src="../javascript/dashboardAccount.js"></script>
 </body>
 
