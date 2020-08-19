@@ -43,7 +43,7 @@ p {
     outline: none;
     border: none;
     cursor: pointer;
-    padding: 5px 0;
+    padding: 5px 10px;
     border-radius: 3px;
     font-size: 12pt;
     font-weight: bold;
@@ -175,11 +175,25 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
 
 /* ********************************DASBHBOARD CSS******************************** */
 
+.btn-collapse {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: 0.5px 0.5px 5px 0.5px rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    outline: none;
+}
+
 .content {
     padding: 0 20px;
     width: 100%;
     max-width: 800px;
     margin: auto;
+    margin-top: 20px;
 }
 
 .content .welcome {
@@ -214,67 +228,173 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     justify-content: center;
 }
 
+[collapsible] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .add-item .btn-new-item {
     width: 100px;
     padding: 5px 5px;
-    display: flex;
-    justify-content: space-between;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .1);
 }
 
 .icon {
     float: right;
     font-weight: bolder;
 }
-[collapsible='false']{
+[collapse='false']{
     display: none;
 }
 
 .form {
     box-sizing: border-box;
     width: 100%;
-    max-width: 500px;
-    padding: 10px 20px;
+    max-width: 400px;
     background-color: #F0C419;
     color: white;
     font-weight: bold;
+    max-height: 0;
+    overflow: hidden;
+    transition: all .3s;
+}
+
+.form>div{
+    padding: 10px 20px;
+}
+
+.category-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.category-items input {
+    display: none;
+}
+
+.label-category {
+    margin: 5px;
+    padding: 5px 10px;
+}
+
+.btn-radio:checked+.label-category{
+    background-color: #f1d04b;
+}
+
+.txt-fields {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    background: transparent;
+    margin-bottom: 10px;
+    outline: none;
+    text-align: center;
+}
+
+.btn-submit{
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    padding: 10px 0 0 0;
 }
 
-.form label {
-    margin: 5px 0;
-    padding: 5px 5px;
-}
-
-.form .insert-item{
+.btn-submit .insert-item{
     text-decoration: underline;
 }
 
-.form input[type='radio'] {
-    display: none;
+.salary-and-savings {
+    display: flex;
+    justify-content: center;
 }
-.form label.active {
-    background: #f1d04b;
+.titles {
+    display: flex;
+    flex-direction: column;
 }
+.titles .details {
+    width: 40px;
+    padding: 2px;
+    box-shadow: none;
+    background: #F0C419;
 
-.form .item-info{
-    padding: 10px 0;
 }
-
-.form .item-info input{
-    margin-bottom: 10px;
-    color: white;
+.salary-and-savings .sal-sav-content{
+    width: 90%;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
 }
-
-.form .item-info input[type='text'] {
-    outline: none;
-    text-align: center;
+.salary-and-savings .sal-sav-content .btn-collapse {
+    cursor: pointer;
     border: none;
     background: transparent;
-    border-bottom: 1px solid white;
+    box-sizing: border-box;
     width: 100%;
+    max-width: 200px;
+    box-shadow: 0.5px 0.5px 5px 0.5px rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    outline: none;
+}
+
+.sal-sav-content>div{
+    overflow: hidden;
+    transition: all .3s;
+    max-height: 0;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, .1);
+}
+
+.sal-sav-content>div .content {
+    margin: 10px 0;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+}
+.sal-sav-content>div .content>div {
+    display: flex;
+}
+
+.sal-sav-content>div .content .txt-fields{
+    color: black;
+    font-size: 14pt;
+    margin: 0 5px;
+}
+
+.month-spends{
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    max-width: 440px;
+    margin: auto;
+}
+
+.month-spend-content{
+    transition: all .3s;
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.month-spend-content>div{
+    padding: 10px;
+}
+.spends{
+    display: flex;
+    align-items: center;
+    width: 160px;
+    position: relative;
+}
+.spends>div{
+    position: absolute;
+    right: 3px;
+    width: 10px;
+    height: 10px;
+    background: #F0C419;
 }
 /* Menu media css */
 

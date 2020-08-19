@@ -53,31 +53,97 @@
             </div>
         </section>
         <section class="content add-item">
-            <button class="bill-button btn-new-item">
+            <button class="bill-button btn-new-item" collapsible>
                 Adicionar
-                <span class="icon" collapsible='true'>&#x2b;</span>
-                <span class="icon" collapsible='false'>&#x2212;</span>
+                <span class="icon" collapse='true'>&#x2b;</span>
+                <span class="icon" collapse='false'>&#x2212;</span>
             </button>
             <form action="" class="form">
-                <div class="item-category">
+                <div class="form-content">
                     <label>Categoria:</label><br>
-                    <input type="radio" name="category" id="variable">
-                    <label for="variable" class="active">Variável</label>
-                    <input type="radio" name="category" id="fixed">
-                    <label for="fixed">Fixa</label>
-                    <input type="radio" name="category" id="aditional">
-                    <label for="aditional">Adicional</label>
-                    <input type="radio" name="category" id="income">
-                    <label for="income">Renda</label>
-                </div>
-                <div class="item-info">
-                    <label for="txt-description">Descrição:</label>
-                    <input type="text" id="txt-description" name="txt-description"><br>
+                    <div class="category-items">
+                        <input type="radio" name="category" id="variable" class="btn-radio">
+                        <label for="variable" class="label-category">Variável</label>
+                        <input type="radio" name="category" id="fixed" class="btn-radio">
+                        <label for="fixed" class="label-category">Fixa</label>
+                        <input type="radio" name="category" id="aditional" class="btn-radio">
+                        <label for="aditional" class="label-category">Adicional</label>
+                        <input type="radio" name="category" id="income" class="btn-radio">
+                        <label for="income" class="label-category">Renda</label>
+                    </div>
+                    <label for="txt-description">Descrição:</label><br>
+                    <input type="text" id="txt-description" name="txt-description" class="txt-fields"><br>
                     <label for="value">Valor:</label><br>
-                    <input type="text" name="value" id="value">
+                    <input type="text" name="value" id="value" class="txt-fields"><br>
+                    <div class="btn-submit">
+                        <input type="submit" value="Inserir" class="bill-button insert-item">
+                    </div>
                 </div>
-                <input type="submit" value="Inserir" class="bill-button insert-item">
             </form>
+        </section>
+        <section class="content salary-and-savings">
+            <div id="salary" class="sal-sav-content">
+                <button class="btn-collapse" collapsible>
+                    <h4 class="titles">
+                        Salário
+                        <div class="details"></div>
+                    </h4>
+                    <span class="icon" collapse='true'>&#x2b;</span>
+                    <span class="icon" collapse='false'>&#x2212;</span>
+                </button>
+                <div>
+                    <div class="content">
+                        <div>
+                            <label for="txt-salary">R$</label>
+                            <input type="text" id="txt-salary" class="txt-fields">
+                        </div>
+                        <div class="btn-submit">
+                            <input type="button" value="Alterar" class="bill-button">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="savings" class="sal-sav-content">
+                <button id="savings" class="btn-collapse" collapsible>
+                    <h4 class="titles">
+                        Poupança
+                        <div class="details"></div>
+                    </h4>
+                    <span class="icon" collapse='true'>&#x2b;</span>
+                    <span class="icon" collapse='false'>&#x2212;</span>
+                </button>
+                <div>
+                    <div class="content">
+                        <div>
+                            <label for="txt-savings">R$</label>
+                            <input type="text" id="txt-savings" class="txt-fields">
+                        </div>
+                        <div class="btn-submit">
+                            <input type="button" value="Alterar" class="bill-button">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="content month-spends">
+            <button class="btn-collapse" collapsible>
+                <h4 class="titles">
+                    Gastos do mês
+                    <div class="details"></div>
+                </h4>
+                <span class="icon" collapse='true'>&#x2b;</span>
+                <span class="icon" collapse='false'>&#x2212;</span>
+            </button>
+            <div class="month-spend-content">
+                <div>
+                    <span class="spends">Despesas Fixas<div></div></span>
+                    <span class="spends">Despesas Variáveis<div></div></span>
+                    <span class="spends">Despesas Adicionais<div></div></span>
+                </div>
+                <picture>
+                    <img src="../img/Loading.gif" alt="Carregando">
+                </picture>
+            </div>
         </section>
     </main>
     <script src="../javascript/dashboardAccount.js"></script>
