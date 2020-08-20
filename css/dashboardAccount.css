@@ -371,31 +371,59 @@ nav .btn-menu:checked~.menu-icon .nav-icon::after {
     margin: auto;
 }
 
-.month-spend-content{
-    transition: all .3s;
-    max-height: 0;
-    overflow: hidden;
+.month-spends .btn-collapse {
+    position: relative;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
 }
-.month-spend-content>div{
-    padding: 10px;
+
+.month-spends .btn-collapse .icon{
+    position: absolute;
+    top: 5px;
+    right: 10px;
 }
+.month-spends .btn-collapse img{
+    width: 120px;
+    position: absolute;
+    right: 40px;
+}
+
 .spends{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+    transition: all .3s;
+}
+
+.spends span {
     display: flex;
     align-items: center;
     width: 160px;
     position: relative;
 }
-.spends>div{
-    position: absolute;
-    right: 3px;
+
+.spends span>div{
     width: 10px;
     height: 10px;
-    background: #F0C419;
+    background-color: #F0C419;
+    position: absolute;
+    right: 0;
 }
+
+.spends table {
+    width: 100%;
+    display: none;
+    transition: all .3s;
+}
+.spends table td {
+    width: 45%;
+    border-bottom: 1px solid #F0C419;
+    text-align: center;
+}
+
+
 /* Menu media css */
 
 @media screen and (min-width: 620px) {

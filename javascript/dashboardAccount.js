@@ -24,9 +24,9 @@ function getCollapsibles(){
     })
 }
 
-function canCollapse(coll, response) {
-    const collapseTrue = coll.querySelector(`[collapse='true']`)
-    const collapseFalse = coll.querySelector(`[collapse='false']`)
+function canCollapse(element, response) {
+    const collapseTrue = element.querySelector(`[collapse='true']`)
+    const collapseFalse = element.querySelector(`[collapse='false']`)
     if (response) {
         collapseTrue.style.display = 'none'
         collapseFalse.style.display = 'block'
@@ -38,5 +38,35 @@ function canCollapse(coll, response) {
     }
 }
 
+// SHOW MONTH SPENDS DETAILS
+function canShowTableSpends(element, canShow) {
+    const tables = element.querySelectorAll(`[spendsTable]`)
+    if (canShow) {
+        tables.forEach(table => table.style.display = 'block')
+    }
+    else {
+        tables.forEach(table => table.style.display = 'none')
+        
+    }
+}
+
+function getMonthSpends(){
+    const monthSpends = document.querySelector(`[month-spends]`)
+    monthSpends.addEventListener('click', function () {
+        const divSpends = document.querySelector(`[divSpends]`)
+        if (divSpends.style.marginTop != '75px'){
+            divSpends.style.marginTop = '75px'
+            canShowTableSpends(divSpends, true)
+            canCollapse(monthSpends, true)
+        }
+        else {
+            divSpends.style.marginTop = '10px'
+            canShowTableSpends(divSpends, false)
+            canCollapse(monthSpends, false)
+        }
+    })
+}
+
 // CALL FUNCTIONS
 getCollapsibles()
+getMonthSpends()
