@@ -4,15 +4,44 @@
 // const DESPESA_VAR_URL = 'https://billwebapp.herokuapp.com/api/despesa/variavel/3/'
 // const DESPESA_ADD_URL = 'https://billwebapp.herokuapp.com/api/despesa/adicional/3/'
 
+
+// IDENTIFY PAGE
+function getPage() {
+    const url = window.location.href
+    activePageLink(url)
+    choosePageFunctions(url)
+}
+
+function activePageLink(url) {
+    const menuLinks = document.querySelectorAll(`[menu-link]`)
+    menuLinks.forEach(link => {
+        if (url.indexOf(link.href) != -1) {
+            link.classList.add('active')
+        }
+    })
+}
+
+function choosePageFunctions(url) {
+    if (url.indexOf('dashboard') != -1) {
+        getCollapsibles()
+        getMonthSpends()
+        getMonthPlans()
+    }
+    else {
+        console.log('Account functions')
+    }
+}
+
+
 // COLLAPSE ELEMENTS FUNCTIONS
 
-function getCollapsibles(){
+function getCollapsibles() {
     const collapsibles = document.querySelectorAll(`[collapsible]`)
     collapsibles.forEach(coll => {
         coll.addEventListener('click', function () {
             this.classList.toggle('active')
             let content = this.nextElementSibling
-            if (content.style.maxHeight){
+            if (content.style.maxHeight) {
                 content.style.maxHeight = null
                 canCollapse(coll, false)
             }
@@ -46,15 +75,15 @@ function canShowTableSpends(element, canShow) {
     }
     else {
         tables.forEach(table => table.style.display = 'none')
-        
+
     }
 }
 
-function getMonthSpends(){
+function getMonthSpends() {
     const monthSpends = document.querySelector(`[month-spends]`)
     monthSpends.addEventListener('click', function () {
         const divSpends = document.querySelector(`[divSpends]`)
-        if (divSpends.style.marginTop != '75px'){
+        if (divSpends.style.marginTop != '75px') {
             divSpends.style.marginTop = '75px'
             canShowTableSpends(divSpends, true)
             canCollapse(monthSpends, true)
@@ -67,6 +96,22 @@ function getMonthSpends(){
     })
 }
 
+// SHOW MONTH PLANS DETAILS
+function getMonthPlans() {
+    const monthPlans = document.querySelector(`[month-plans]`)
+    monthPlans.addEventListener('click', function () {
+        const viewPlans = document.querySelector(`[view-plans]`)
+        if (viewPlans.style.maxHeight) {
+            viewPlans.style.maxHeight = null
+            canCollapse(monthPlans, false)
+        }
+        else {
+            viewPlans.style.maxHeight = viewPlans.scrollHeight + 'px'
+            canCollapse(monthPlans, true)
+        }
+    })
+}
+
 // CALL FUNCTIONS
-getCollapsibles()
-getMonthSpends()
+
+getPage()

@@ -19,8 +19,8 @@
         <input type="checkbox" class="btn-menu" id="btn-menu">
         <label class="menu-icon" for="btn-menu"><span class="nav-icon"></span></label>
         <ul class="menu">
-            <li><a href="dashboard.html" id="dash-link">Dashboard</a></li>
-            <li><a href="conta.html" id="acc-link">Conta</a></li>
+            <li><a menu-link href="dashboard.html" id="dashboard">Dashboard</a></li>
+            <li><a menu-link href="conta.html" id="conta">Conta</a></li>
             <li><a href="index.html">Sair</a></li>
         </ul>
     </nav>
@@ -66,8 +66,8 @@
                         <label for="variable" class="label-category">Variável</label>
                         <input type="radio" name="category" id="fixed" class="btn-radio">
                         <label for="fixed" class="label-category">Fixa</label>
-                        <input type="radio" name="category" id="aditional" class="btn-radio">
-                        <label for="aditional" class="label-category">Adicional</label>
+                        <input type="radio" name="category" id="additional" class="btn-radio">
+                        <label for="additional" class="label-category">Adicional</label>
                         <input type="radio" name="category" id="income" class="btn-radio">
                         <label for="income" class="label-category">Renda</label>
                     </div>
@@ -134,62 +134,89 @@
                 <span class="icon" collapse='true'>&#x2b;</span>
                 <span class="icon" collapse='false'>&#x2212;</span>
                 <img src="../img/Loading.gif" alt="Carregando">
-                <div>
-                    <div class="spends" divSpends>
-                        <span>Despesas Fixas<div></div></span>
-                        <table spendsTable>
-                            <tr>
-                                <td>Teste</td>
-                                <td>12 Jun</td>
-                                <td>R$10,00</td>
-                            </tr>
-                            <tr>
-                                <td>Teste</td>
-                                <td>12 Jun</td>
-                                <td>R$10,00</td>
-                            </tr>
-                            <tr>
-                                <td>Teste</td>
-                                <td>12 Jun</td>
-                                <td>R$10,00</td>
-                            </tr>
-                        </table>
-                        <span>Despesas Variáveis<div></div></span>
-                        <table spendsTable>
-                            <tr>
-                                <td>Teste</td>
-                                <td>12 Jun</td>
-                                <td>R$10,00</td>
-                            </tr>
-                            <tr>
-                                <td>Teste</td>
-                                <td>12 Jun</td>
-                                <td>R$10,00</td>
-                            </tr>
-                            <tr>
-                                <td>Teste</td>
-                                <td>12 Jun</td>
-                                <td>R$10,00</td>
-                            </tr>
-                        </table>
-                        <span>Despesas Adicionais<div></div></span>
-                        <table spendsTable>
-                            <tr>
-                                <td>Teste</td>
-                                <td>12 Jun</td>
-                                <td>R$10,00</td>
-                            </tr>
-                            <tr>
-                                <td>Teste</td>
-                                <td>12 Jun</td>
-                                <td>R$10,00</td>
-                            </tr>
-                            <tr>
-                                <td>Teste</td>
-                                <td>12 Jun</td>
-                                <td>R$10,00</td>
-                            </tr>
-                        </table>
+                <div class="spends" divSpends>
+                    <span id="fixed">Despesas Fixas<div></div></span>
+                    <table spendsTable category='fixed'>
+                        <tr>
+                            <td>Teste</td>
+                            <td>12 Jun</td>
+                            <td>R$10,00</td>
+                        </tr>
+                        <tr>
+                            <td>Teste</td>
+                            <td>12 Jun</td>
+                            <td>R$10,00</td>
+                        </tr>
+                        <tr>
+                            <td>Teste</td>
+                            <td>12 Jun</td>
+                            <td>R$10,00</td>
+                        </tr>
+                    </table>
+                    <span id="variable">Despesas Variáveis<div></div></span>
+                    <table spendsTable category='variable'>
+                        <tr>
+                            <td>Teste</td>
+                            <td>12 Jun</td>
+                            <td>R$10,00</td>
+                        </tr>
+                        <tr>
+                            <td>Teste</td>
+                            <td>12 Jun</td>
+                            <td>R$10,00</td>
+                        </tr>
+                        <tr>
+                            <td>Teste</td>
+                            <td>12 Jun</td>
+                            <td>R$10,00</td>
+                        </tr>
+                    </table>
+                    <span id="additional">Despesas Adicionais<div></div></span>
+                    <table spendsTable category='additional'>
+                        <tr>
+                            <td>Teste</td>
+                            <td>12 Jun</td>
+                            <td>R$10,00</td>
+                        </tr>
+                        <tr>
+                            <td>Teste</td>
+                            <td>12 Jun</td>
+                            <td>R$10,00</td>
+                        </tr>
+                        <tr>
+                            <td>Teste</td>
+                            <td>12 Jun</td>
+                            <td>R$10,00</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section class="content plan">
+            <div class="btn-collapse">
+                <div month-plans>
+                    <h4 class="titles">
+                        Planejamento
+                        <div class="details"></div>
+                    </h4>
+                    <span class="icon" collapse='true'>&#x2b;</span>
+                    <span class="icon" collapse='false'>&#x2212;</span>
+                </div>
+                <div class="plan-content">
+                    <div class="bar">
+                        <div class="porcent-bar">
+                            <span>50%</span>
+                        </div>
+                    </div>
+                    <span>
+                        R$2.500,00 gastos de R$5.000,00
+                    </span>
+                    <div class="month-plan" view-plans>
+                        <label for="txt-plan">Previsão de gastos neste mês:</label><br>
+                        R$<input type="text" id="txt-plan">
+                        <div class="btn-submit">
+                            <input type="button" value="Alterar" class="bill-button">
+                        </div>
                     </div>
                 </div>
             </div>
